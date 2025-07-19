@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Debaters EHTP</title>
+    <link rel="stylesheet" href="GD.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="LOGOGD.png" alt="Logo Great Debaters" class="logo left-logo">
+            <nav class="navbar">
+                <button class="hamburger" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
+                <ul class="nav-list">
+                    <button class="close-menu-btn" aria-label="Fermer le menu" style="display:none;"><i class="fas fa-times"></i></button>
+                    <li class="nav-item active" data-section="accueil">Accueil</li>
+                    <li class="nav-item" data-section="palmares">Palmarès</li>
+                    <li class="nav-item" data-section="bureau">Bureau</li>
+                    <li class="nav-item" data-section="revue">Revue</li>
+                    <li class="nav-item" data-section="contact">Contact</li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-dropdown">
+                    <button class="lang-dropbtn" aria-label="Changer la langue"><i class="fas fa-globe"></i> <span class="lang-label">FR</span> <i class="fas fa-caret-down"></i></button>
+                    <div class="lang-dropdown-content">
+                        <a href="#" data-lang="fr">Français</a>
+                        <a href="#" data-lang="ar">العربية</a>
+                        <a href="#" data-lang="en">English</a>
+                    </div>
+                </div>
+                <button class="theme-toggle" aria-label="Changer le mode"><i class="fas fa-moon"></i></button>
+            </div>
+            <img src="ehtp logo.png" alt="Logo Ecole" class="logo right-logo">
+        </div>
+    </header>
+    <main id="main-content">
+        <section id="carousel-section" class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="_52A5326.jpg" alt="Photo 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="Screenshot_2025-07-17-15-53-18-509_com.android.chrome-edit.jpg" alt="Photo 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="_52A5289.jpg" alt="Photo 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="_52A5326.jpg" alt="Photo 4">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="Capture d’écran 2025-07-19 034957.png" alt="Photo 5">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
+                <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
+            </div>
+            <h1 class="carousel-title">Great Debaters EHTP</h1>
+            <div class="quote-container">
+                <div class="quote-decoration left-decoration">
+                    <i class="fas fa-feather-alt"></i>
+                </div>
+                <blockquote class="carousel-quote">« Le débat n'est pas un champ de bataille, mais un atelier d'idées où se forge la compréhension mutuelle »</blockquote>
+                <div class="quote-decoration right-decoration">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+            
+            <div class="explore-btn-wrapper">
+                <button class="explore-btn">
+                    <span>Explorer</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+        <!-- Contenu dynamique ici -->
+    </main>
+    
+    <template id="contact-template">
+        <section class="contact-section">
+            <div class="contact-logo">
+                <img src="LOGOGD.png" alt="Logo Great Debaters">
+            </div>
+            <div class="contact-header">
+                <h2>Contactez-nous</h2>
+                <p>Nous sommes là pour répondre à toutes vos questions et collaborations</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>École Hassania des Travaux Publics<br>Route d'El Jadida, Km 7<br>Casablanca, Maroc</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>great.debaters.ehtp@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Téléphone</h3>
+                            <p>+212 6 12-04-33-65</p>
+                        </div>
+                    </div>
+                    <div class="social-media">
+                        <h3>Suivez-nous</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/GDEHTP/" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/greatdebatersehtp/" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://ma.linkedin.com/company/great-debaters-ehtp" class="social-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                            <label for="nom">Nom</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                            <label for="prenom">Prénom</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="telephone" name="telephone" placeholder="Votre téléphone" required pattern="[0-9+ ]{8,}">
+                            <label for="telephone">Téléphone</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Votre email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Envoyer le message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div class="form-feedback" style="display:none;"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <h3>Notre localisation</h3>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.1234567890123!2d-7.654321!3d33.543210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDMyJzM2LjAiTiA3wrAzOScxNS41Ilc!5e0!3m2!1sfr!2sma!4v1234567890123" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Bureau Exécutif -->
+            <div class="executive-bureau">
+                <h3>Bureau Exécutif</h3>
+                <div class="bureau-members">
+                    <div class="bureau-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Président</h4>
+                            <p class="member-name">NADAHE Mohammed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bureau-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Vice-Président</h4>
+                            <p class="member-name">EL KHADIRI Douae</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bureau-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Secrétaire Général</h4>
+                            <p class="member-name">Ahmed Fouad Goughelt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+    </template>
+    
+    <!-- Section Définition du Club -->
+    <template id="definition-template">
+        <section class="definition-section">
+            <div class="definition-header">
+                <div class="definition-logo">
+                    <img src="LOGOGD.png" alt="Logo Great Debaters" class="definition-logo-img">
+                </div>
+                <h1 class="definition-title">Great Debaters EHTP</h1>
+                <p class="definition-subtitle">L'Excellence du Débat à l'École Hassania des Travaux Publics</p>
+            </div>
+            
+            <!-- Section Statistiques -->
+            <div class="stats-section">
+                <h2>Nos Chiffres Clés</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Années d'Excellence</div>
+                        <div class="stat-description">Depuis notre création en 2019</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number">140</div>
+                        <div class="stat-label">Membres Actifs</div>
+                        <div class="stat-description">Étudiants formés chaque année</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Trophées Gagnés</div>
+                        <div class="stat-description">Tournois nationaux et internationaux</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Graphique Évolution Membres -->
+            <div class="chart-section">
+                <h2>Évolution du Nombre de Membres</h2>
+                <div class="chart-container">
+                    <canvas id="membersChart"></canvas>
+                </div>
+                <div class="chart-description">
+                    <p>Cette courbe montre l'évolution du nombre de nouveaux membres qui rejoignent le club Great Debaters EHTP chaque année, démontrant notre croissance constante et notre attractivité croissante auprès des étudiants.</p>
+                </div>
+            </div>
+            
+            <div class="definition-content">
+                <div class="definition-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Notre Mission</h3>
+                    <p>Former les leaders de demain à travers l'art de la persuasion, de l'éloquence et du débat constructif. Nous développons les compétences oratoires, la pensée critique et l'esprit d'équipe de nos membres.</p>
+                </div>
+                
+                <div class="definition-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Notre Vision</h3>
+                    <p>Devenir la référence nationale en matière de débat académique et de formation en leadership, en créant une communauté d'orateurs éloquents et de penseurs critiques qui contribuent au développement de la société.</p>
+                </div>
+                
+                <div class="definition-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Nos Valeurs</h3>
+                    <ul class="values-list">
+                        <li><strong>Excellence :</strong> Recherche constante de la perfection dans nos performances</li>
+                        <li><strong>Respect :</strong> Écoute active et considération des opinions d'autrui</li>
+                        <li><strong>Innovation :</strong> Créativité dans nos approches et méthodes</li>
+                        <li><strong>Solidarité :</strong> Esprit d'équipe et soutien mutuel</li>
+                        <li><strong>Intégrité :</strong> Honnêteté et éthique dans nos débats</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activities-section">
+                <h2>Nos Activités</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <h4>Débats Réguliers</h4>
+                        <p>Sessions hebdomadaires de débat sur des sujets d'actualité, politiques, économiques et sociaux.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Compétitions</h4>
+                        <p>Participation aux tournois nationaux et internationaux de débat avec un palmarès exceptionnel.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>Formation</h4>
+                        <p>Ateliers de formation en techniques de débat, éloquence et art oratoire pour tous les niveaux.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Événements</h4>
+                        <p>Organisation de conférences, tables rondes et événements culturels ouverts à la communauté.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="membership-section">
+                <h2>Rejoignez-nous</h2>
+                <div class="membership-content">
+                    <div class="membership-info">
+                        <h3>Pourquoi nous rejoindre ?</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> Développement de compétences oratoires exceptionnelles</li>
+                            <li><i class="fas fa-check"></i> Participation à des compétitions nationales et internationales</li>
+                            <li><i class="fas fa-check"></i> Formation continue en techniques de débat</li>
+                            <li><i class="fas fa-check"></i> Réseau de professionnels et d'anciens membres</li>
+                            <li><i class="fas fa-check"></i> Opportunités de leadership et de prise de responsabilités</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="join-card">
+                        <h3>Comment nous rejoindre ?</h3>
+                        <p>Les inscriptions sont ouvertes à tous les étudiants de l'EHTP. Contactez-nous pour plus d'informations sur nos sessions d'essai et nos programmes de formation.</p>
+                        <button class="join-btn" onclick="document.querySelector('[data-section=\"contact\"]').click()">
+                            <span>Nous Contacter</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    
+    <!-- Footer Professionnel -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="LOGOGD.png" alt="Logo Great Debaters" class="footer-logo-img">
+                    <h3>Great Debaters EHTP</h3>
+                </div>
+                <p class="footer-description">
+                    Club de débat d'excellence de l'École Hassania des Travaux Publics, 
+                    formant les leaders de demain à travers l'art de la persuasion et de l'éloquence.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Liens Rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="#" data-section="accueil">Accueil</a></li>
+                    <li><a href="#" data-section="palmares">Palmarès</a></li>
+                    <li><a href="#" data-section="bureau">Bureau</a></li>
+                    <li><a href="#" data-section="revue">Revue</a></li>
+                    <li><a href="#" data-section="contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <div class="footer-contact">
+                    <p><i class="fas fa-map-marker-alt"></i> EHTP, Route d'El Jadida, Casablanca</p>
+                    <p><i class="fas fa-envelope"></i> greatdebaters@ehtp.ac.ma</p>
+                    <p><i class="fas fa-phone"></i> +212 5 22 23 34 56</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/GDEHTP/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/greatdebatersehtp/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://ma.linkedin.com/company/great-debaters-ehtp" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2024 Great Debaters EHTP. Tous droits réservés.
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Politique de confidentialité</a>
+                    <a href="#" class="legal-link">Conditions d'utilisation</a>
+                    <a href="#" class="legal-link">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="GD.js"></script>
+</body>
+</html>
