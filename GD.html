@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ang">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
                         <img src="_52A5326.jpg" alt="Photo 1">
                     </div>
                     <div class="carousel-slide">
-                        <img src="Screenshot_2025-07-17-15-53-18-509_com.android.chrome-edit.jpg" alt="Photo 2">
+                        <img src="IMG-20250605-WA0011.jpg" alt="Photo 2">
                     </div>
                     <div class="carousel-slide">
                         <img src="_52A5289.jpg" alt="Photo 3">
@@ -52,9 +52,7 @@
                     <div class="carousel-slide">
                         <img src="_52A5326.jpg" alt="Photo 4">
                     </div>
-                    <div class="carousel-slide">
-                        <img src="Capture d’écran 2025-07-19 034957.png" alt="Photo 5">
-                    </div>
+                    
                 </div>
                 <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
                 <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
@@ -328,6 +326,57 @@
                     </div>
                 </div>
             </div>
+            <!-- Section Nos Cellules -->
+            <section class="club-cells-section">
+                <h2 class="club-cells-title">Nos Cellules</h2>
+                <div class="club-cells-grid">
+                    <div class="cell-card sponsoring">
+                        <div class="cell-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="cell-title">Sponsoring</div>
+                        <div class="cell-desc">Recherche de partenaires, gestion des sponsors et financement des activités du club.</div>
+                    </div>
+                    <div class="cell-card media">
+                        <div class="cell-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="cell-title">Média & Design</div>
+                        <div class="cell-desc">Création de contenus visuels, gestion des réseaux sociaux et communication du club.</div>
+                    </div>
+                    <div class="cell-card formation">
+                        <div class="cell-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="cell-title">Formation</div>
+                        <div class="cell-desc">Organisation des ateliers, coaching des membres et développement des compétences en débat.</div>
+                    </div>
+                    <div class="cell-card revue">
+                        <div class="cell-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="cell-title">Revue</div>
+                        <div class="cell-desc">Rédaction d'articles, gestion de la revue du club et valorisation des productions intellectuelles.</div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section Nos Sections -->
+            <section class="club-sections-section">
+                <h2 class="club-sections-title">Nos Sections</h2>
+                <p class="club-sections-desc">Le club Great Debaters EHTP est structuré en plusieurs sections thématiques, chacune jouant un rôle clé dans la vie du club et permettant à chaque membre de s'investir selon ses centres d'intérêt.</p>
+                <ul class="club-sections-list">
+                    <li><span class="section-label">Débat Français</span> <span class="section-count">40</span></li>
+                    <li><span class="section-label">Débat Anglais</span> <span class="section-count">34</span></li>
+                    <li><span class="section-label">Débat Arabe</span> <span class="section-count">54</span></li>
+                </ul>
+                <div class="club-sections-graph">
+                    <canvas id="sectionsChart"></canvas>
+                </div>
+            </section>
+            <!-- Section Public Speaking -->
+            <section class="club-public-speaking-section">
+                <h2 class="club-public-speaking-title">Public Speaking</h2>
+                <div class="club-public-speaking-content">
+                    <div class="public-speaking-img-wrapper">
+                        <img src="pngtree-conference-speech-speaking-concept-illustration-of-people-png-image_15291828 (1).png" alt="Public Speaking Illustration" class="public-speaking-img">
+                    </div>
+                    <div class="public-speaking-desc">
+                        <p>La section Public Speaking vise à développer les compétences oratoires, la confiance en soi et l'art de s'exprimer en public à travers des ateliers, des concours et des simulations de conférences.</p>
+                    </div>
+                </div>
+            </section>
             
             <div class="membership-section">
                 <h2>Rejoignez-nous</h2>
@@ -372,7 +421,7 @@
             </div>
             
             <div class="footer-section">
-                <h4>Liens Rapides</h4>
+                <h4 id="footer-menu-title">Menu</h4>
                 <ul class="footer-links">
                     <li><a href="#" data-section="accueil">Accueil</a></li>
                     <li><a href="#" data-section="palmares">Palmarès</a></li>
@@ -383,16 +432,16 @@
             </div>
             
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4 id="footer-contact-title">Contact</h4>
                 <div class="footer-contact">
                     <p><i class="fas fa-map-marker-alt"></i> EHTP, Route d'El Jadida, Casablanca</p>
-                    <p><i class="fas fa-envelope"></i> greatdebaters@ehtp.ac.ma</p>
+                    <p><i class="fas fa-envelope"></i> greatdebaters@ehtp.ac.maaa</p>
                     <p><i class="fas fa-phone"></i> +212 5 22 23 34 56</p>
                 </div>
             </div>
             
             <div class="footer-section">
-                <h4>Suivez-nous</h4>
+                <h4 id="footer-follow-title">Follow us</h4>
                 <div class="footer-social">
                     <a href="https://www.facebook.com/GDEHTP/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/greatdebatersehtp/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
