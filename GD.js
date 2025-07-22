@@ -479,7 +479,7 @@ const carouselHTML = {
     `
 };
 let langDropdownOpen = false;
-let currentLang = 'fr';
+let currentLang = 'en'; // anglais par défaut
 let currentSection = 'accueil';
 langDropBtn.addEventListener('click', function(e) {
     e.stopPropagation();
@@ -532,333 +532,123 @@ langDropBtn.addEventListener('keydown', function(e) {
     }
 });
 
-// Fonction pour changer la langue
+// === VARIABLES DE TRADUCTION GLOBALES ===
+const cellTranslations = {
+    fr: [
+        { title: 'Sponsoring', desc: 'Recherche de partenaires, gestion des sponsors et financement des activités du club.' },
+        { title: 'Média & Design', desc: 'Création de contenus visuels, gestion des réseaux sociaux et communication du club.' },
+        { title: 'Formation', desc: 'Organisation des ateliers, coaching des membres et développement des compétences en débat.' },
+        { title: 'Revue', desc: "Rédaction d'articles, gestion de la revue du club et valorisation des productions intellectuelles." }
+    ],
+    en: [
+        { title: 'Sponsorship', desc: 'Seeking partners, managing sponsors, and funding club activities.' },
+        { title: 'Media & Design', desc: 'Creating visual content, managing social media, and club communication.' },
+        { title: 'Training', desc: 'Organizing workshops, coaching members, and developing debating skills.' },
+        { title: 'Review', desc: 'Writing articles, managing the club review, and promoting intellectual productions.' }
+    ],
+    ar: [
+        { title: 'الرعاية', desc: 'البحث عن شركاء، إدارة الرعاة، وتمويل أنشطة النادي.' },
+        { title: 'الإعلام والتصميم', desc: 'إنشاء محتوى مرئي، إدارة وسائل التواصل، والتواصل للنادي.' },
+        { title: 'التكوين', desc: 'تنظيم ورش العمل، تدريب الأعضاء، وتطوير مهارات المناظرة.' },
+        { title: 'المجلة', desc: 'كتابة المقالات، إدارة مجلة النادي، وإبراز الإنتاجات الفكرية.' }
+    ]
+};
+const sectionLabels = {
+    fr: ['Débat Français', 'Débat Anglais', 'Débat Arabe'],
+    en: ['French Debate', 'English Debate', 'Arabic Debate'],
+    ar: ['المناظرة الفرنسية', 'المناظرة الإنجليزية', 'المناظرة العربية']
+};
+const cellsSectionsTitles = {
+    fr: { cells: 'Nos Cellules', sections: 'Nos Sections', sectionsDesc: "Le club Great Debaters EHTP est structuré en plusieurs sections thématiques, chacune jouant un rôle clé dans la vie du club et permettant à chaque membre de s'investir selon ses centres d'intérêt." },
+    en: { cells: 'Our Cells', sections: 'Our Sections', sectionsDesc: "The Great Debaters EHTP club is structured into several thematic sections, each playing a key role in club life and allowing every member to get involved according to their interests." },
+    ar: { cells: 'خلايا النادي', sections: 'الأقسام', sectionsDesc: "يضم نادي المناظرات الكبرى عدة أقسام موضوعية، لكل منها دور رئيسي في حياة النادي وتتيح لكل عضو المشاركة حسب اهتماماته." }
+};
+
+// === FONCTION DE CHANGEMENT DE LANGUE UNIFIÉE ===
 function changeLanguage(lang) {
     currentLang = lang;
-    
-    // Mettre à jour le bouton de langue
-    const langBtn = document.querySelector('.lang-dropbtn');
-    const langLabel = langBtn.querySelector('.lang-label');
-    
-    switch(lang) {
-        case 'fr':
-            langLabel.textContent = 'FR';
-            break;
-        case 'ar':
-            langLabel.textContent = 'AR';
-            break;
-        case 'en':
-            langLabel.textContent = 'EN';
-            break;
-    }
-    
-    // Traduire le contenu principal
-    translateContent(lang);
-    
-    // Le footer reste toujours en français et LTR, sauf le copyright et liens légaux
-    const footer = document.querySelector('.footer');
-    if (footer) {
-        // Appliquer la direction selon la langue
-        if (lang === 'ar') {
-            footer.style.direction = 'rtl';
-            footer.style.textAlign = 'right';
-        } else {
-            footer.style.direction = 'ltr';
-            footer.style.textAlign = 'left';
-        }
-        
-        // Traduire seulement le copyright et les liens légaux
-        const copyright = footer.querySelector('.copyright');
-        const legalLinks = footer.querySelectorAll('.legal-link');
-        
-        // Traduire aussi les titres des sections du footer
-        const footerTitles = footer.querySelectorAll('.footer-section h4');
-        
-        // Traduire le contenu des sections du footer
-        const footerLinks = footer.querySelectorAll('.footer-links a');
-        const footerContact = footer.querySelectorAll('.footer-contact p');
-        const footerDescription = footer.querySelector('.footer-description');
-        
-        const footerTranslations = {
-            fr: {
-                'copyright': '© 2024 Great Debaters EHTP. Tous droits réservés.',
-                'privacy': 'Politique de confidentialité',
-                'terms': 'Conditions d\'utilisation',
-                'legal': 'Mentions légales',
-                'quick-links': 'Liens Rapides',
-                'contact': 'Contact',
-                'follow-us': 'Suivez-nous',
-                'description': 'Club de débat d\'excellence de l\'École Hassania des Travaux Publics, formant les leaders de demain à travers l\'art de la persuasion et de l\'éloquence.',
-                'accueil': 'Accueil',
-                'palmares': 'Palmarès',
-                'bureau': 'Bureau',
-                'revue': 'Revue',
-                'contact': 'Contact',
-                'address-text': 'EHTP, Route d\'El Jadida, Casablanca',
-                'email-text': 'greatdebaters@ehtp.ac.ma',
-                'phone-text': '+212 5 22 23 34 56'
-            },
-            ar: {
-                'copyright': '© 2024 Great Debaters EHTP. جميع الحقوق محفوظة.',
-                'privacy': 'سياسة الخصوصية',
-                'terms': 'شروط الاستخدام',
-                'legal': 'الإشعارات القانونية',
-                'quick-links': 'روابط سريعة',
-                'contact': 'اتصل بنا',
-                'follow-us': 'تابعونا',
-                'description': 'نادي مناظرة التميز في المدرسة الحسنية للأشغال العمومية، نُشكل قادة الغد من خلال فن الإقناع والبلاغة.',
-                'accueil': 'الرئيسية',
-                'palmares': 'الإنجازات',
-                'bureau': 'المكتب',
-                'revue': 'المجلة',
-                'contact': 'اتصل بنا',
-                'address-text': 'المدرسة الحسنية للأشغال العمومية، طريق الجديدة، الدار البيضاء',
-                'email-text': 'greatdebaters@ehtp.ac.ma',
-                'phone-text': '+212 5 22 23 34 56'
-            },
-            en: {
-                'copyright': '© 2024 Great Debaters EHTP. All rights reserved.',
-                'privacy': 'Privacy Policy',
-                'terms': 'Terms of Use',
-                'legal': 'Legal Notices',
-                'quick-links': 'Quick Links',
-                'contact': 'Contact',
-                'follow-us': 'Follow Us'
-            }
-        };
-        
-        if (copyright) {
-            copyright.textContent = footerTranslations[lang]['copyright'];
-        }
-        
-        legalLinks.forEach((link, index) => {
-            if (index === 0) link.textContent = footerTranslations[lang]['privacy'];
-            if (index === 1) link.textContent = footerTranslations[lang]['terms'];
-            if (index === 2) link.textContent = footerTranslations[lang]['legal'];
-        });
-        
-        // Traduire les titres des sections du footer
-        footerTitles.forEach((title, index) => {
-            if (index === 1) title.textContent = footerTranslations[lang]['quick-links'];
-            if (index === 2) title.textContent = footerTranslations[lang]['contact'];
-            if (index === 3) title.textContent = footerTranslations[lang]['follow-us'];
-        });
-        
-        // Traduire la description
-        if (footerDescription) {
-            footerDescription.textContent = footerTranslations[lang]['description'];
-        }
-        
-        // Traduire les liens de navigation
-        footerLinks.forEach((link, index) => {
-            if (index === 0) link.textContent = footerTranslations[lang]['accueil'];
-            if (index === 1) link.textContent = footerTranslations[lang]['palmares'];
-            if (index === 2) link.textContent = footerTranslations[lang]['bureau'];
-            if (index === 3) link.textContent = footerTranslations[lang]['revue'];
-            if (index === 4) link.textContent = footerTranslations[lang]['contact'];
-        });
-        
-        // Traduire les informations de contact
-        footerContact.forEach((contact, index) => {
-            const textContent = contact.textContent;
-            if (textContent.includes('EHTP, Route d\'El Jadida')) {
-                contact.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${footerTranslations[lang]['address-text']}`;
-            } else if (textContent.includes('greatdebaters@ehtp.ac.ma')) {
-                contact.innerHTML = `<i class="fas fa-envelope"></i> ${footerTranslations[lang]['email-text']}`;
-            } else if (textContent.includes('+212 5 22 23 34 56')) {
-                contact.innerHTML = `<i class="fas fa-phone"></i> ${footerTranslations[lang]['phone-text']}`;
-            }
-        });
-        
-        // Appliquer la direction RTL/LTR à tous les éléments du footer
-        const footerElements = footer.querySelectorAll('*');
-        footerElements.forEach(element => {
-            if (lang === 'ar') {
-                element.style.direction = 'rtl';
-                element.style.textAlign = 'right';
-            } else {
-                element.style.direction = 'ltr';
-                element.style.textAlign = 'left';
-            }
-        });
-        
-        // Ajouter la navigation pour les liens rapides du footer
-        const footerNavigationLinks = footer.querySelectorAll('.footer-links a');
-        footerNavigationLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const section = this.getAttribute('data-section');
-                
-                // Mettre à jour la navigation active
-                document.querySelectorAll('.nav-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                const activeNavItem = document.querySelector(`[data-section="${section}"]`);
-                if (activeNavItem) {
-                    activeNavItem.classList.add('active');
-                }
-                
-                // Charger le contenu de la section
-                if (section === 'accueil') {
-                    const mainContent = document.getElementById('main-content');
-                    mainContent.innerHTML = `
-                        <section id="carousel-section" class="carousel-section">
-                            <div class="carousel-container">
-                                <div class="carousel">
-                                    <div class="carousel-slide active">
-                                        <img src="Screenshot_2025-07-17-15-54-08-143_com.whatsapp-edit.jpg" alt="Photo 1">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="Screenshot_2025-07-17-15-53-18-509_com.android.chrome-edit.jpg" alt="Photo 2">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="_52A5289.jpg" alt="Photo 3">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="_52A5326.jpg" alt="Photo 4">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="Capture d'écran 2025-07-19 034957.png" alt="Photo 5">
-                                    </div>
-                                </div>
-                                <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
-                                <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
-                            </div>
-                            <h1 class="carousel-title">Great Debaters EHTP</h1>
-                            <div class="quote-container">
-                                <div class="quote-decoration left-decoration">
-                                    <i class="fas fa-feather-alt"></i>
-                                </div>
-                                <blockquote class="carousel-quote">« Le débat n'est pas un champ de bataille, mais un atelier d'idées où se forge la compréhension mutuelle »</blockquote>
-                                <div class="quote-decoration right-decoration">
-                                    <i class="fas fa-bolt"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="explore-btn-wrapper">
-                                <button class="explore-btn">
-                                    <span>Explorer</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </section>
-                    `;
-                    initCarousel();
-                    translateContent(lang);
-                } else if (section === 'contact') {
-                    renderContactSection(lang);
-                } else if (section === 'palmares') {
-                    const mainContent = document.getElementById('main-content');
-                    mainContent.innerHTML = `
-                        <section class="palmares-section">
-                            <div class="palmares-header">
-                                <h2>Palmarès</h2>
-                                <p>Découvrez nos réalisations et nos trophées</p>
-                            </div>
-                            <div class="palmares-content">
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-trophy"></i>
-                                    </div>
-                                    <h3>Championnat National 2023</h3>
-                                    <p>Première place au championnat national de débat</p>
-                                </div>
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-medal"></i>
-                                    </div>
-                                    <h3>Tournoi International</h3>
-                                    <p>Finaliste au tournoi international de débat</p>
-                                </div>
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h3>Excellence Académique</h3>
-                                    <p>Reconnaissance pour l'excellence académique</p>
-                                </div>
-                            </div>
-                        </section>
-                    `;
-                } else if (section === 'bureau') {
-                    const mainContent = document.getElementById('main-content');
-                    mainContent.innerHTML = `
-                        <section class="bureau-section">
-                            <div class="bureau-header">
-                                <h2>Bureau</h2>
-                                <p>Rencontrez notre équipe dirigeante</p>
-                            </div>
-                            <div class="bureau-content">
-                                <div class="bureau-member-card">
-                                    <div class="member-avatar">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
-                                    <h3>Président</h3>
-                                    <p class="member-name">NADAHE Mohammed</p>
-                                </div>
-                                <div class="bureau-member-card">
-                                    <div class="member-avatar">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <h3>Vice-Président</h3>
-                                    <p class="member-name">EL KHADIRI Douae</p>
-                                </div>
-                                <div class="bureau-member-card">
-                                    <div class="member-avatar">
-                                        <i class="fas fa-user-edit"></i>
-                                    </div>
-                                    <h3>Secrétaire Général</h3>
-                                    <p class="member-name">Ahmed Fouad Goughelt</p>
-                                </div>
-                            </div>
-                        </section>
-                    `;
-                } else if (section === 'revue') {
-                    const mainContent = document.getElementById('main-content');
-                    mainContent.innerHTML = `
-                        <section class="revue-section">
-                            <div class="revue-header">
-                                <h2>Revue</h2>
-                                <p>Nos publications et articles</p>
-                            </div>
-                            <div class="revue-content">
-                                <div class="article-card">
-                                    <h3>L'Art du Débat</h3>
-                                    <p>Guide complet sur les techniques de débat</p>
-                                </div>
-                                <div class="article-card">
-                                    <h3>Éloquence et Persuasion</h3>
-                                    <p>Les secrets de l'art oratoire</p>
-                                </div>
-                                <div class="article-card">
-                                    <h3>Actualités du Club</h3>
-                                    <p>Les dernières nouvelles de Great Debaters</p>
-                                </div>
-                            </div>
-                        </section>
-                    `;
-                }
-                
-                // Scroll vers le haut de la page
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Permettre aux liens des réseaux sociaux d'ouvrir les vrais liens
-        const socialLinks = footer.querySelectorAll('.social-icon');
-        socialLinks.forEach(link => {
-            // Supprimer preventDefault pour permettre l'ouverture des liens
-            link.addEventListener('click', function(e) {
-                // Laisser le lien s'ouvrir normalement
-                // Pas de preventDefault ici
-            });
-        });
-    }
+    document.documentElement.lang = lang;
+    const langLabel = document.querySelector('.lang-label');
+    if (langLabel) langLabel.textContent = lang.toUpperCase();
+    document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.style.textAlign = lang === 'ar' ? 'right' : 'left';
+    translateNavItems(lang);
+    translateMainContent(lang);
+    translateFooter(lang);
+    console.log('[Lang] Changement de langue:', lang);
 }
+
+function translateNavItems(lang) {
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        const section = item.getAttribute('data-section');
+        if (translations[lang] && translations[lang][section]) {
+            item.textContent = translations[lang][section];
+        }
+    });
+}
+
+function translateMainContent(lang) {
+    // Ajoutez ici la logique de traduction du contenu principal si besoin
+}
+
+function translateFooter(lang) {
+    // Ajoutez ici la logique de traduction du footer si besoin
+}
+
+// === OPTIMISATION DE LA TRADUCTION DES CELLULES ET SECTIONS ===
+function translateCellsAndSections(lang) {
+    const translations = cellsSectionsTitles[lang] || cellsSectionsTitles.fr;
+    // Titres
+    document.querySelectorAll('.club-cells-title, .club-sections-title').forEach(el => {
+        if (el.classList.contains('club-cells-title')) el.textContent = translations.cells;
+        else el.textContent = translations.sections;
+    });
+    // Description
+    const desc = document.querySelector('.club-sections-desc');
+    if (desc) desc.textContent = translations.sectionsDesc;
+    // Cellules
+    const cells = document.querySelectorAll('.cell-card');
+    cellTranslations[lang]?.forEach((cell, i) => {
+        if (cells[i]) {
+            const title = cells[i].querySelector('.cell-title');
+            const desc = cells[i].querySelector('.cell-desc');
+            if (title) title.textContent = cell.title;
+            if (desc) desc.textContent = cell.desc;
+        }
+    });
+    // Sections
+    const sections = document.querySelectorAll('.section-label');
+    sectionLabels[lang]?.forEach((label, i) => {
+        if (sections[i]) sections[i].textContent = label;
+    });
+}
+
+// === APPLIQUER LA TRADUCTION APRÈS CLONAGE DE TEMPLATE ===
+const originalLoadDefinitionSection = loadDefinitionSection;
+loadDefinitionSection = function() {
+                    const mainContent = document.getElementById('main-content');
+    const template = document.getElementById('definition-template');
+    if (!template) return;
+    mainContent.innerHTML = '';
+    mainContent.appendChild(template.content.cloneNode(true));
+    setTimeout(() => {
+        createMembersChart();
+        createSectionsChart();
+    }, 100);
+    translateDefinitionContent(currentLang);
+    translateCellsAndSections(currentLang);
+};
+const originalRenderContactSection = renderContactSection;
+renderContactSection = function(lang) {
+                    const mainContent = document.getElementById('main-content');
+    const template = document.getElementById('contact-template');
+    if (!template) return;
+    mainContent.innerHTML = '';
+    mainContent.appendChild(template.content.cloneNode(true));
+    translateContent(lang);
+    translateCellsAndSections(lang);
+};
 
 // Fonction pour traduire le contenu
 function translateContent(lang) {
@@ -1473,6 +1263,7 @@ function loadDefinitionSection() {
     // Créer le graphique après le chargement du contenu
     setTimeout(() => {
         createMembersChart();
+    createSectionsChart();
     }, 100);
     
     // Traduire le contenu selon la langue actuelle
@@ -1742,6 +1533,22 @@ function translateDefinitionContent(lang) {
     
     const contactBtn = document.querySelector('.join-btn span');
     if (contactBtn) contactBtn.textContent = t.contactUs;
+    
+    // Traduction dynamique de la section Public Speaking
+    const publicSpeakingTitle = {
+        fr: 'Public Speaking',
+        en: 'Public Speaking',
+        ar: 'الخطابة العامة'
+    };
+    const publicSpeakingDesc = {
+        fr: "La section Public Speaking vise à développer les compétences oratoires, la confiance en soi et l'art de s'exprimer en public à travers des ateliers, des concours et des simulations de conférences.",
+        en: "The Public Speaking section aims to develop oratory skills, self-confidence, and the art of public speaking through workshops, competitions, and conference simulations.",
+        ar: "تهدف قسم الخطابة العامة إلى تطوير المهارات الخطابية والثقة بالنفس وفن التحدث أمام الجمهور من خلال ورش العمل والمسابقات ومحاكاة المؤتمرات."
+    };
+    const psTitleElem = document.querySelector('.club-public-speaking-title');
+    const psDescElem = document.querySelector('.public-speaking-desc p');
+    if(psTitleElem) psTitleElem.textContent = publicSpeakingTitle[lang] || publicSpeakingTitle['fr'];
+    if(psDescElem) psDescElem.textContent = publicSpeakingDesc[lang] || publicSpeakingDesc['fr'];
 }
 
 // Navigation depuis le footer
@@ -1826,38 +1633,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Initialisation avec la langue française par défaut
-changeLanguage('fr');
+// Initialisation avec la langue anglaise par défaut
+changeLanguage('en');
 
 // Mode sombre/clair
 const themeToggle = document.querySelector('.theme-toggle');
-let isDarkMode = false;
+let isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-// Vérifier si le thème sombre était déjà activé
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark');
-    isDarkMode = true;
-    const icon = themeToggle.querySelector('i');
-    icon.classList.remove('fa-moon');
-    icon.classList.add('fa-sun');
+function applyTheme() {
+    if (isDarkMode) {
+        document.body.classList.add('dark');
+        themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+    } else {
+        document.body.classList.remove('dark');
+        themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+    }
+    console.log('[Theme] Mode sombre:', isDarkMode);
 }
 
-themeToggle.addEventListener('click', () => {
-    isDarkMode = !isDarkMode;
-    document.body.classList.toggle('dark');
-    
-    // Sauvegarder la préférence
-    localStorage.setItem('darkMode', isDarkMode);
-    
-    const icon = themeToggle.querySelector('i');
-    if(isDarkMode) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    }
-});
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+        localStorage.setItem('darkMode', isDarkMode);
+        applyTheme();
+    });
+    // Appliquer le thème au chargement
+    applyTheme();
+}
 
 // Accessibilité : fermer menu avec Echap
 window.addEventListener('keydown', (e) => {
@@ -1922,10 +1724,10 @@ function createMembersChart() {
     
     const data = {
         labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
-        datasets: [{
+            datasets: [{
             label: 'Nouveaux Membres',
-            data: [43, 67, 81, 120, 140, 140],
-            backgroundColor: function(context) {
+                data: [43, 67, 81, 120, 140, 140],
+                backgroundColor: function(context) {
                 const index = context.dataIndex;
                 const barColors = [
                     '#e2b889',  // Marron doré
@@ -1936,16 +1738,16 @@ function createMembersChart() {
                     '#FF6347'   // Rouge-orange
                 ];
                 return barColors[index % barColors.length];
-            },
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            borderRadius: 8,
+                },
+                borderColor: '#ffffff',
+                borderWidth: 3,
+                borderRadius: 8,
             borderSkipped: false,
             // Animation des barres
-            barThickness: 60,
-            maxBarThickness: 80,
-            minBarLength: 20
-        }]
+                barThickness: 60,
+                maxBarThickness: 80,
+                minBarLength: 20
+            }]
     };
     
     const config = {
@@ -2170,3 +1972,205 @@ function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
+
+// Fonction pour créer le graphique des sections
+function createSectionsChart() {
+    const ctx = document.getElementById('sectionsChart');
+    if (!ctx) return;
+    if (window.sectionsChartInstance) {
+        window.sectionsChartInstance.destroy();
+    }
+    const colors = ['#e67e22', '#d35400', '#f6c28b'];
+    const data = {
+        labels: ['Débat Français', 'Débat Anglais', 'Débat Arabe'],
+            datasets: [{
+            data: [40, 34, 54],
+            backgroundColor: colors,
+                borderColor: '#fff',
+            borderWidth: 1,
+            borderRadius: 0,
+            hoverBorderWidth: 1,
+            hoverOffset: 0,
+            }]
+    };
+    window.sectionsChartInstance = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'right',
+                    labels: {
+                        color: '#222',
+                        font: { size: 15, weight: 'normal', family: 'Arial, sans-serif' },
+                        padding: 16,
+                        boxWidth: 18,
+                        boxHeight: 12,
+                        usePointStyle: false,
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    backgroundColor: '#fff',
+                    titleColor: '#222',
+                    bodyColor: '#222',
+                    borderColor: '#ccc',
+                    borderWidth: 1,
+                    cornerRadius: 4,
+                    displayColors: true,
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 13 },
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.parsed} membres`;
+                        }
+                    }
+                }
+            },
+            animation: {
+                animateRotate: true,
+                animateScale: true,
+                duration: 1200,
+                easing: 'easeOutQuart'
+            },
+            layout: {
+                padding: 0
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+        },
+        plugins: []
+    });
+}
+
+// Traductions pour les cellules et la section Nos Sections
+
+const footerTitlesTranslations = {
+    fr: {
+        menu: 'Menu',
+        contact: 'Contact',
+        follow: 'Suivez-nous'
+    },
+    en: {
+        menu: 'Menu',
+        contact: 'Contact',
+        follow: 'Follow us'
+    },
+    ar: {
+        menu: 'القائمة',
+        contact: 'اتصل بنا',
+        follow: 'تابعونا'
+    }
+};
+
+function translateFooterTitles(lang) {
+    const menu = document.getElementById('footer-menu-title');
+    const contact = document.getElementById('footer-contact-title');
+    const follow = document.getElementById('footer-follow-title');
+    if(menu) menu.textContent = footerTitlesTranslations[lang]?.menu || 'Menu';
+    if(contact) contact.textContent = footerTitlesTranslations[lang]?.contact || 'Contact';
+    if(follow) follow.textContent = footerTitlesTranslations[lang]?.follow || 'Follow us';
+    // Traduire la description du club
+    const desc = document.querySelector('.footer-description');
+    if(desc) desc.textContent = footerDescriptionTranslations[lang] || footerDescriptionTranslations.fr;
+    // Traduire les infos de contact
+    const contactPs = document.querySelectorAll('.footer-contact p');
+    const contactArr = footerContactTranslations[lang] || footerContactTranslations.fr;
+    contactPs.forEach((p, i) => { if(contactArr[i]) p.innerHTML = contactArr[i]; });
+}
+
+function translateFooterMenuLinks(lang) {
+    const footerLinks = document.querySelectorAll('.footer-links a');
+    const navLabels = [
+        translations[lang]['accueil'],
+        translations[lang]['palmares'],
+        translations[lang]['bureau'],
+        translations[lang]['revue'],
+        translations[lang]['contact']
+    ];
+    footerLinks.forEach((link, i) => {
+        if (navLabels[i]) link.textContent = navLabels[i];
+    });
+}
+
+const originalChangeLanguage2 = changeLanguage;
+changeLanguage = function(lang) {
+    originalChangeLanguage2(lang);
+    translateFooterTitles(lang);
+    translateFooterMenuLinks(lang);
+};
+
+// === AJOUT : Traductions pour la description et les infos de contact du footer ===
+const footerDescriptionTranslations = {
+  fr: "Club de débat d'excellence de l'École Hassania des Travaux Publics, formant les leaders de demain à travers l'art de la persuasion et de l'éloquence.",
+  en: "Excellence debate club of Hassania School of Public Works, training tomorrow's leaders through the art of persuasion and eloquence.",
+  ar: "نادي مناظرات متميز بالمدرسة الحسنية للأشغال العمومية، يُكوّن قادة الغد عبر فن الإقناع والبلاغة."
+};
+const footerContactTranslations = {
+  fr: [
+    '<i class="fas fa-map-marker-alt"></i> EHTP, Route d\'El Jadida, Casablanca',
+    '<i class="fas fa-envelope"></i> greatdebaters@ehtp.ac.ma',
+    '<i class="fas fa-phone"></i> +212 5 22 23 34 56'
+  ],
+  en: [
+    '<i class="fas fa-map-marker-alt"></i> Hassania School of Public Works, Route d\'El Jadida, Casablanca',
+    '<i class="fas fa-envelope"></i> greatdebaters@ehtp.ac.ma',
+    '<i class="fas fa-phone"></i> +212 5 22 23 34 56'
+  ],
+  ar: [
+    '<i class="fas fa-map-marker-alt"></i> المدرسة الحسنية للأشغال العمومية، طريق الجديدة، الدار البيضاء',
+    '<i class="fas fa-envelope"></i> greatdebaters@ehtp.ac.ma',
+    '<i class="fas fa-phone"></i> +212 5 22 23 34 56'
+  ]
+};
+
+// === INITIALISATION CORRECTE DU CARROUSEL ===
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialiser la langue par défaut
+    changeLanguage(currentLang || 'en');
+    // Initialiser le carrousel si présent
+    if (document.querySelector('.carousel')) {
+        initCarousel();
+    }
+    // Gestion des clics sur la navigation
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const section = this.getAttribute('data-section');
+            loadSection(section);
+        });
+    });
+});
+
+function loadSection(section) {
+    currentSection = section;
+    // Mettre à jour la navigation active
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    const navItem = document.querySelector(`[data-section="${section}"]`);
+    if (navItem) navItem.classList.add('active');
+    // Charger le contenu
+    if (section === 'accueil') {
+        loadHomeSection();
+    } else if (section === 'contact') {
+        renderContactSection(currentLang);
+    } else {
+        // Charger les autres sections si besoin
+    }
+    console.log('[Nav] Section chargée:', section);
+}
+
+function loadHomeSection() {
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = carouselHTML[currentLang];
+    initCarousel();
+    translateContent(currentLang);
+}
+// ... existing code ...
+// Ajout de logs pour le débogage
+console.log('[Init] Script chargé.');
