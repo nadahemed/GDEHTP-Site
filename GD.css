@@ -496,9 +496,9 @@ body.dark .theme-toggle:hover, body.dark .theme-toggle:focus {
     animation: floatTitle 2.5s infinite ease-in-out alternate;
 }
 @keyframes floatTitle {
-    0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1.04) rotate(-1deg); }
-    100% { transform: translateY(0) scale(1); }
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.04) rotate(-1deg); }
+  100% { transform: translateY(0) scale(1); }
 }
 .carousel-quote {
     font-size: 1.35rem;
@@ -604,17 +604,17 @@ body.dark .theme-toggle:hover, body.dark .theme-toggle:focus {
 
 .explore-btn {
     background: linear-gradient(90deg, #a05a2c 0%, #f5cda7 100%);
-    color: #fff;
+  color: #fff;
     font-size: 1.35rem;
     font-weight: 700;
     padding: 16px 48px;
-    border: none;
-    border-radius: 32px;
+  border: none;
+  border-radius: 32px;
     box-shadow: 0 4px 24px rgba(160,90,44,0.18), 0 2px 8px #e2b889;
     text-decoration: none;
     letter-spacing: 1px;
     transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
+  cursor: pointer;
     outline: none;
 }
 
@@ -2600,4 +2600,299 @@ body.dark .theme-toggle:hover, body.dark .theme-toggle:focus {
 @keyframes float {
     0% { transform: translateY(0px) rotate(0deg); }
     100% { transform: translateY(-20px) rotate(360deg); }
+}
+
+/* Réduction de la taille du graphique Nos Sections */
+.club-sections-graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px 0 0 0;
+    background: var(--card-bg, #fff7ef);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 #e2b88922, 0 2px 12px 0 #a05a2c11;
+    padding: 24px 0;
+    border: 2px solid #e2b889;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.club-sections-graph canvas#sectionsChart {
+    width: 320px !important;
+    height: 320px !important;
+    aspect-ratio: 1/1;
+    max-width: 100%;
+    max-height: 340px;
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #e2b88922;
+}
+
+/* Harmonisation du style Nos Sections avec Nos Cellules */
+.club-sections-section {
+    background: linear-gradient(135deg, #fff7ef 0%, #f5cda7 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(160,90,44,0.10);
+    padding: 56px 28px 36px 28px;
+    margin: 56px 0 0 0;
+    border: 2.5px solid #e2b889;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.club-sections-title {
+    color: #a05a2c;
+    font-size: 2.3rem;
+  font-weight: 900;
+    margin-bottom: 22px;
+    text-align: center;
+  letter-spacing: 1.2px;
+    text-shadow: 0 2px 8px #fff7ef, 0 1px 0 #e2b889;
+}
+.club-sections-desc {
+  color: #5e3c23;
+    font-size: 1.13rem;
+    text-align: center;
+    margin-bottom: 28px;
+    opacity: 0.88;
+}
+.club-sections-list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+}
+.club-sections-list li {
+    background: linear-gradient(135deg, #fff7ef 0%, #f5cda7 100%);
+    border-radius: 18px;
+    padding: 24px 36px;
+  color: #a05a2c;
+  font-weight: 700;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 24px rgba(160,90,44,0.08);
+    border: 2px solid #e2b889;
+  display: flex;
+  align-items: center;
+    gap: 16px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+    min-width: 160px;
+    justify-content: center;
+}
+.club-sections-list li:hover {
+    background: linear-gradient(135deg, #f5cda7 0%, #fff7ef 100%);
+    color: #5e3c23;
+    box-shadow: 0 8px 32px rgba(160,90,44,0.15);
+    transform: translateY(-4px) scale(1.04);
+  border-color: #a05a2c;
+}
+.section-label {
+    font-weight: 800;
+  color: #a05a2c;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.section-count {
+    background: #e2b889;
+    color: #fff;
+    border-radius: 10px;
+    padding: 4px 14px;
+    font-size: 1.05rem;
+  font-weight: 700;
+    margin-left: 10px;
+    box-shadow: 0 2px 8px #e2b88933;
+    border: 1.5px solid #DAA520;
+}
+
+/* Style premium et cadrage pour Nos Cellules */
+.club-cells-section {
+    background: linear-gradient(135deg, #fff7ef 0%, #f5cda7 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(160,90,44,0.10);
+    padding: 56px 28px 36px 28px;
+    margin: 56px 0 0 0;
+    border: 2.5px solid #e2b889;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.club-cells-title {
+    color: #a05a2c;
+    font-size: 2.3rem;
+  font-weight: 900;
+    margin-bottom: 22px;
+    text-align: center;
+  letter-spacing: 1.2px;
+    text-shadow: 0 2px 8px #fff7ef, 0 1px 0 #e2b889;
+}
+.club-cells-grid {
+    display: flex;
+    flex-wrap: wrap;
+  gap: 32px;
+    justify-content: center;
+    margin-top: 32px;
+}
+.cell-card {
+    background: linear-gradient(135deg, #fff7ef 0%, #f5cda7 100%);
+    border-radius: 18px;
+    padding: 32px 36px;
+    color: #a05a2c;
+    font-weight: 700;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 24px rgba(160,90,44,0.08);
+    border: 2px solid #e2b889;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+    min-width: 220px;
+    max-width: 320px;
+    flex: 1 1 220px;
+  position: relative;
+    text-align: center;
+}
+.cell-card:hover {
+    background: linear-gradient(135deg, #f5cda7 0%, #fff7ef 100%);
+    color: #5e3c23;
+    box-shadow: 0 8px 32px rgba(160,90,44,0.15);
+    transform: translateY(-4px) scale(1.04);
+  border-color: #a05a2c;
+}
+.cell-icon {
+    font-size: 2.2rem;
+  color: #e2b889;
+    margin-bottom: 12px;
+    background: #fff7ef;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px #e2b88933;
+    border: 1.5px solid #DAA520;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.cell-title {
+    font-weight: 800;
+  color: #a05a2c;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.cell-desc {
+    color: #5e3c23;
+    font-size: 1.05rem;
+    opacity: 0.88;
+  margin-bottom: 0;
+}
+
+/* Couleurs personnalisées pour chaque icône de cellule */
+.cell-card.sponsoring .cell-icon {
+    background: #e6fff2;
+    color: #27ae60;
+    border-color: #27ae60;
+    box-shadow: 0 2px 12px #27ae6040;
+}
+.cell-card.media .cell-icon {
+    background: #f5e6ff;
+    color: #a259e6;
+    border-color: #a259e6;
+    box-shadow: 0 2px 12px #a259e640;
+}
+.cell-card.formation .cell-icon {
+    background: #e6f0ff;
+    color: #2980ef;
+    border-color: #2980ef;
+    box-shadow: 0 2px 12px #2980ef40;
+  }
+.cell-card.revue .cell-icon {
+    background: #fff3e6;
+    color: #e67e22;
+    border-color: #e67e22;
+    box-shadow: 0 2px 12px #e67e2240;
+  }
+
+/* Section Public Speaking - harmonisée avec les autres sections premium */
+.club-public-speaking-section {
+    background: linear-gradient(135deg, #fff7ef 0%, #f5cda7 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(160,90,44,0.10);
+    padding: 56px 28px 36px 28px;
+    margin: 56px 0 0 0;
+    border: 2.5px solid #e2b889;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.club-public-speaking-title {
+    color: #a05a2c;
+    font-size: 2.3rem;
+    font-weight: 900;
+    margin-bottom: 22px;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-shadow: 0 2px 8px #fff7ef, 0 1px 0 #e2b889;
+}
+.club-public-speaking-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 32px;
+}
+.public-speaking-img-wrapper {
+    flex: 0 0 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff7ef;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(160,90,44,0.08);
+    border: 2px solid #e2b889;
+    padding: 18px;
+    min-width: 220px;
+    max-width: 320px;
+    height: 220px;
+}
+.public-speaking-img {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 2px 12px #e2b88933;
+    background: #fff;
+}
+.public-speaking-desc {
+    flex: 1 1 320px;
+    color: #5e3c23;
+    font-size: 1.13rem;
+    opacity: 0.92;
+    background: linear-gradient(135deg, #fff7ef 0%, #f5cda7 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(160,90,44,0.08);
+    border: 2px solid #e2b889;
+    padding: 32px 36px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    min-width: 220px;
+    max-width: 420px;
+    margin: 0;
+}
+@media (max-width: 900px) {
+    .club-public-speaking-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .public-speaking-img-wrapper, .public-speaking-desc {
+        max-width: 100%;
+        min-width: 0;
+    }
 }
