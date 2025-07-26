@@ -53,7 +53,9 @@ const translations = {
         bureau: 'Bureau',
         revue: 'Revue',
         contact: 'Contact',
-        label: 'FR'
+        label: 'FR',
+        anniversaryTitle: '🎉 Anniversaire du club',
+        anniversaryText: 'Le club a été fondé le <b>23 octobre 2020</b> <span style="font-size:1.2em">🎂</span>'
     },
     en: {
         accueil: 'Home',
@@ -61,7 +63,9 @@ const translations = {
         bureau: 'Board',
         revue: 'Review',
         contact: 'Contact',
-        label: 'EN'
+        label: 'EN',
+        anniversaryTitle: '🎉 Club Anniversary',
+        anniversaryText: 'The club was founded on <b>October 23, 2020</b> <span style="font-size:1.2em">🎂</span>'
     },
     ar: {
         accueil: 'الرئيسية',
@@ -69,7 +73,9 @@ const translations = {
         bureau: 'المكتب',
         revue: 'المجلة',
         contact: 'اتصل',
-        label: 'AR'
+        label: 'AR',
+        anniversaryTitle: '🎉 ذكرى تأسيس النادي',
+        anniversaryText: 'تأسس النادي في <b>23 أكتوبر 2020</b> <span style="font-size:1.2em">🎂</span>'
     }
 };
 const mainContent = document.getElementById('main-content');
@@ -479,7 +485,7 @@ const carouselHTML = {
     `
 };
 let langDropdownOpen = false;
-let currentLang = 'en'; // anglais par défaut
+let currentLang = 'fr'; // français par défaut
 let currentSection = 'accueil';
 langDropBtn.addEventListener('click', function(e) {
     e.stopPropagation();
@@ -683,7 +689,9 @@ function translateContent(lang) {
             'president': 'Président',
             'vice-president': 'Vice-Président',
             'secretary-general': 'Secrétaire Général',
-            'explore': 'Explorer'
+            'explore': 'Explorer',
+            'anniversaryTitle': '🎉 Anniversaire du club',
+            'anniversaryText': 'Le club a été fondé le <b>23 octobre 2020</b> <span style="font-size:1.2em">🎂</span>'
         },
         ar: {
             'accueil': 'الرئيسية',
@@ -715,7 +723,9 @@ function translateContent(lang) {
             'president': 'الرئيس',
             'vice-president': 'نائب الرئيس',
             'secretary-general': 'الأمين العام',
-            'explore': 'استكشف'
+            'explore': 'استكشف',
+            'anniversaryTitle': '🎉 ذكرى تأسيس النادي',
+            'anniversaryText': 'تأسس النادي في <b>23 أكتوبر 2020</b> <span style="font-size:1.2em">🎂</span>'
         },
         en: {
             'accueil': 'Home',
@@ -745,6 +755,8 @@ function translateContent(lang) {
             'message-placeholder': 'Your message',
             'executive-bureau': 'Executive Board',
             'president': 'President',
+            'anniversaryTitle': '🎉 Club Anniversary',
+            'anniversaryText': 'The club was founded on <b>October 23, 2020</b> <span style="font-size:1.2em">🎂</span>',
             'vice-president': 'Vice-President',
             'secretary-general': 'Secretary General',
             'explore': 'Explore'
@@ -1153,7 +1165,16 @@ document.querySelectorAll('.nav-item').forEach(item => {
             renderContactSection(currentLang);
         } else if (section === 'palmares') {
             const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = `
+            
+            // Générer le bloc anniversaire selon la langue
+            const annivHTML = `
+                <div class="club-anniversary-box" onclick="triggerFireworks()">
+                    <div class="anniv-title">${translations[currentLang].anniversaryTitle}</div>
+                    <div class="anniv-text">${translations[currentLang].anniversaryText}</div>
+                </div>
+            `;
+            
+            mainContent.innerHTML = annivHTML + `
                 <section class="palmares-section">
                     <div class="palmares-header">
                         <h2>Palmarès</h2>
@@ -2131,6 +2152,10 @@ const footerContactTranslations = {
 
 // === INITIALISATION CORRECTE DU CARROUSEL ===
 document.addEventListener('DOMContentLoaded', function() {
+    // Forcer la langue française à chaque chargement
+    localStorage.setItem('lang', 'fr');
+    currentLang = 'fr';
+    changeLanguage('fr');
     // Initialiser la langue par défaut
     changeLanguage(currentLang || 'en');
     // Initialiser le carrousel si présent
@@ -2174,3 +2199,200 @@ function loadHomeSection() {
 // ... existing code ...
 // Ajout de logs pour le débogage
 console.log('[Init] Script chargé.');
+
+// === GESTION DU SWIPE POUR LE CHANGEMENT DE LANGUE SUR MOBILE ===
+let touchStartX = 0;
+let touchEndX = 0;
+const langOrder = ['fr', 'en', 'ar'];
+
+langDropBtn.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+    }
+});
+langDropBtn.addEventListener('touchmove', function(e) {
+    if (e.touches.length === 1) {
+        touchEndX = e.touches[0].clientX;
+    }
+});
+langDropBtn.addEventListener('touchend', function(e) {
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > 40) { // Seuil de détection du swipe
+        let currentIdx = langOrder.indexOf(currentLang);
+        if (deltaX < 0) {
+            // Swipe gauche : langue suivante
+            currentIdx = (currentIdx + 1) % langOrder.length;
+        } else {
+            // Swipe droite : langue précédente
+            currentIdx = (currentIdx - 1 + langOrder.length) % langOrder.length;
+        }
+        const nextLang = langOrder[currentIdx];
+        localStorage.setItem('lang', nextLang);
+        currentLang = nextLang;
+        changeLanguage(nextLang);
+    }
+});
+
+// ... existing code ...
+
+// === EFFET FEU D'ARTIFICE POUR L'ANNIVERSAIRE ===
+function triggerFireworks() {
+    // Créer le conteneur des feux d'artifice
+    const fireworksContainer = document.createElement('div');
+    fireworksContainer.id = 'fireworks-container';
+    fireworksContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        overflow: hidden;
+    `;
+    document.body.appendChild(fireworksContainer);
+
+    // Créer plusieurs explosions
+    for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+            createFirework(fireworksContainer);
+        }, i * 200);
+    }
+
+    // Supprimer le conteneur après 4 secondes
+    setTimeout(() => {
+        if (fireworksContainer.parentNode) {
+            fireworksContainer.parentNode.removeChild(fireworksContainer);
+        }
+    }, 4000);
+}
+
+function createFirework(container) {
+    const firework = document.createElement('div');
+    firework.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        pointer-events: none;
+    `;
+
+    // Position aléatoire
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight * 0.6;
+    
+    firework.style.left = x + 'px';
+    firework.style.top = y + 'px';
+
+    // Couleurs dorées et orange
+    const colors = ['#FFD700', '#FFA500', '#FF8C00', '#FF6347', '#FF4500', '#FFD700'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    firework.style.backgroundColor = color;
+    firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}, 0 0 30px ${color}`;
+
+    container.appendChild(firework);
+
+    // Animation d'explosion
+    const particles = [];
+    const particleCount = 30;
+
+    // Créer les particules
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: ${color};
+            box-shadow: 0 0 5px ${color};
+            left: ${x}px;
+            top: ${y}px;
+            pointer-events: none;
+        `;
+        container.appendChild(particle);
+        particles.push(particle);
+    }
+
+    // Animer les particules
+    particles.forEach((particle, index) => {
+        const angle = (index / particleCount) * 2 * Math.PI;
+        const distance = 50 + Math.random() * 100;
+        const endX = x + Math.cos(angle) * distance;
+        const endY = y + Math.sin(angle) * distance;
+        const duration = 1000 + Math.random() * 500;
+
+        // Animation avec keyframes
+        particle.animate([
+            { 
+                transform: 'translate(0, 0) scale(1)',
+                opacity: 1
+            },
+            { 
+                transform: `translate(${endX - x}px, ${endY - y}px) scale(0)`,
+                opacity: 0
+            }
+        ], {
+            duration: duration,
+            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        }).onfinish = () => {
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+            }
+        };
+    });
+
+    // Supprimer le feu d'artifice principal
+    setTimeout(() => {
+        if (firework.parentNode) {
+            firework.parentNode.removeChild(firework);
+        }
+    }, 1500);
+}
+
+// Effet de vibration sur le bloc anniversaire
+function addAnniversaryClickEffect() {
+    const anniversaryBox = document.querySelector('.club-anniversary-box');
+    if (anniversaryBox) {
+        anniversaryBox.style.cursor = 'pointer';
+        anniversaryBox.style.transition = 'transform 0.1s ease';
+        
+        anniversaryBox.addEventListener('click', function() {
+            // Effet de vibration
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+            
+            // Déclencher les feux d'artifice
+            triggerFireworks();
+        });
+    }
+}
+
+// Appliquer l'effet quand le DOM est chargé
+document.addEventListener('DOMContentLoaded', function() {
+    // Observer les changements pour appliquer l'effet aux nouveaux blocs anniversaire
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && node.querySelector) {
+                        const anniversaryBox = node.querySelector('.club-anniversary-box');
+                        if (anniversaryBox) {
+                            addAnniversaryClickEffect();
+                        }
+                    }
+                });
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    
+    // Appliquer l'effet aux blocs existants
+    addAnniversaryClickEffect();
+});
