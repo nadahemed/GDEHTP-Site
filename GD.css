@@ -3187,3 +3187,2640 @@ body.dark .map {
     border: 3px solid #ffd700;
     box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
 }
+
+/* === SECTION HISTORIQUE === */
+.history-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.history-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.history-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-header p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.history-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.history-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.history-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ffa500, #ff8c00);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: #ffd700;
+}
+
+.history-card:hover::before {
+    transform: scaleX(1);
+}
+
+.history-card.founder {
+    border-left: 4px solid #ffd700;
+}
+
+.history-card.milestone {
+    border-left: 4px solid #ffa500;
+}
+
+.history-card.cofounders {
+    border-left: 4px solid #ff8c00;
+}
+
+.history-card.logo {
+    border-left: 4px solid #ff6347;
+}
+
+.history-card.vee {
+    border-left: 4px solid #ff4500;
+}
+
+.history-card.developer {
+    border-left: 4px solid #ffd700;
+}
+
+.history-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.history-card.founder .history-icon {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.history-card.milestone .history-icon {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+}
+
+.history-card.cofounders .history-icon {
+    background: linear-gradient(135deg, #ff8c00, #ff6347);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.history-card.logo .history-icon {
+    background: linear-gradient(135deg, #ff6347, #ff4500);
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.4);
+}
+
+.history-card.vee .history-icon {
+    background: linear-gradient(135deg, #ff4500, #dc143c);
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+}
+
+.history-card.developer .history-icon {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.history-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    transition: transform 0.6s ease;
+}
+
+.history-card:hover .history-icon::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.history-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.history-name {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 8px 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.history-card:hover .history-name {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* === DARK MODE POUR LA SECTION HISTORIQUE === */
+body.dark .history-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+}
+
+body.dark .history-header h2 {
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+body.dark .history-header p {
+    color: #ffb366;
+}
+
+body.dark .history-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 2px solid #ffd700;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
+}
+
+body.dark .history-card:hover {
+    border-color: #ffa500;
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.25);
+}
+
+body.dark .history-info h3 {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .history-name {
+    color: #ffb366;
+}
+
+body.dark .history-card:hover .history-name {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .history-section {
+        padding: 40px 15px;
+        margin: 30px 0;
+    }
+    
+    .history-header h2 {
+        font-size: 2rem;
+    }
+    
+    .history-header p {
+        font-size: 1rem;
+    }
+    
+    .history-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .history-card {
+        padding: 25px;
+    }
+    
+    .history-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .history-card {
+        padding: 20px;
+    }
+    
+    .history-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .history-name {
+        font-size: 1rem;
+    }
+}
+
+/* === SECTION COMPÉTITIONS GAGNÉES === */
+.competitions-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+    margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(255, 193, 7, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.competitions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ffa500, #ff8c00, #ffd700);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.competitions-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.competitions-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b85c00;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(184, 92, 0, 0.2);
+}
+
+.competitions-header p {
+    font-size: 1.2rem;
+    color: #8d6e63;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.competitions-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.competition-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fff8e1 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 12px 40px rgba(255, 193, 7, 0.2);
+    border: 3px solid #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.competition-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: transform 0.6s ease;
+}
+
+.competition-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 193, 7, 0.3);
+    border-color: #ffa500;
+}
+
+.competition-card:hover::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.competition-trophy {
+    flex-shrink: 0;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trophy-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.competition-card:hover .trophy-image {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(255, 193, 7, 0.5);
+}
+
+.trophy-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: trophyGlow 2s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes trophyGlow {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.competition-info {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.competition-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #b85c00;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(184, 92, 0, 0.2);
+}
+
+.competition-description {
+    font-size: 1.1rem;
+    color: #8d6e63;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.winning-team {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.winning-team h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #b85c00;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+}
+
+.team-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.5);
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.team-photo:hover .team-image {
+    transform: scale(1.1);
+}
+
+/* === DARK MODE POUR LA SECTION COMPÉTITIONS === */
+body.dark .competitions-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+}
+
+body.dark .competitions-header h2 {
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+body.dark .competitions-header p {
+    color: #ffb366;
+}
+
+body.dark .competition-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 3px solid #ffd700;
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.2);
+}
+
+body.dark .competition-card:hover {
+    border-color: #ffa500;
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .competition-info h3 {
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+body.dark .competition-description {
+    color: #ffb366;
+}
+
+body.dark .competition-details {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+    border-left-color: #ffd700;
+}
+
+body.dark .theme-section h4, 
+body.dark .section-info h4 {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .theme-text, 
+body.dark .section-text {
+    color: #ffb366;
+    border-left-color: rgba(255, 215, 0, 0.3);
+}
+
+body.dark .winning-team h4 {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .winning-team {
+    border-top-color: rgba(255, 215, 0, 0.3);
+}
+
+body.dark .team-members h5 {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .members-list li {
+    color: #ffb366;
+}
+
+body.dark .members-list li:hover {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+body.dark .team-photo {
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .team-photo:hover {
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .competitions-section {
+        padding: 40px 15px;
+        margin: 30px 0;
+    }
+    
+    .competitions-header h2 {
+        font-size: 2rem;
+    }
+    
+    .competitions-header p {
+        font-size: 1rem;
+    }
+    
+    .competition-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        gap: 30px;
+    }
+    
+    .competition-trophy {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .competition-info h3 {
+        font-size: 1.6rem;
+    }
+    
+    .team-photo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+    
+    .team-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .competition-details {
+        padding: 15px;
+    }
+    
+    .theme-text, .section-text {
+        padding-left: 15px;
+    }
+    
+    .members-list li {
+        padding-left: 20px;
+    }
+}
+
+/* === STYLES SPÉCIFIQUES POUR LA COMPÉTITION VEE === */
+.competition-card.vee-competition {
+    border-left: 4px solid #ff6347;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+}
+
+.competition-card.vee-competition:hover {
+    border-color: #ff4500;
+    box-shadow: 0 20px 60px rgba(255, 99, 71, 0.3);
+}
+
+.competition-card.vee-competition .competition-details {
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.9), rgba(255, 224, 178, 0.9));
+    border-left: 4px solid #ff6347;
+}
+
+.competition-card.vee-competition .theme-section h4,
+.competition-card.vee-competition .section-info h4 {
+    color: #d84315;
+}
+
+.competition-card.vee-competition .theme-text,
+.competition-card.vee-competition .section-text {
+    color: #8d6e63;
+    border-left: 2px solid rgba(255, 99, 71, 0.3);
+}
+
+.competition-card.vee-competition .winning-team h4 {
+    color: #d84315;
+}
+
+.competition-card.vee-competition .team-members h5 {
+    color: #d84315;
+}
+
+.competition-card.vee-competition .members-list li:hover {
+    color: #d84315;
+}
+
+/* === DARK MODE POUR VEE === */
+body.dark .competition-card.vee-competition {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 3px solid #ff6347;
+}
+
+body.dark .competition-card.vee-competition:hover {
+    border-color: #ff4500;
+    box-shadow: 0 20px 60px rgba(255, 99, 71, 0.3);
+}
+
+body.dark .competition-card.vee-competition .competition-details {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+    border-left-color: #ff6347;
+}
+
+body.dark .competition-card.vee-competition .theme-section h4,
+body.dark .competition-card.vee-competition .section-info h4 {
+    color: #ff6347;
+    text-shadow: 0 0 8px rgba(255, 99, 71, 0.3);
+}
+
+body.dark .competition-card.vee-competition .winning-team h4 {
+    color: #ff6347;
+    text-shadow: 0 0 10px rgba(255, 99, 71, 0.3);
+}
+
+body.dark .competition-card.vee-competition .team-members h5 {
+    color: #ff6347;
+    text-shadow: 0 0 8px rgba(255, 99, 71, 0.3);
+}
+
+body.dark .competition-card.vee-competition .members-list li:hover {
+    color: #ff6347;
+    text-shadow: 0 0 5px rgba(255, 99, 71, 0.4);
+}
+
+/* === STYLES SPÉCIFIQUES POUR LA COMPÉTITION GRAND DÉBAT === */
+.competition-card.grand-debat-competition {
+    border-left: 4px solid #9c27b0;
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.competition-card.grand-debat-competition:hover {
+    border-color: #7b1fa2;
+    box-shadow: 0 20px 60px rgba(156, 39, 176, 0.3);
+}
+
+.competition-card.grand-debat-competition .competition-details {
+    background: linear-gradient(135deg, rgba(243, 229, 245, 0.9), rgba(225, 190, 231, 0.9));
+    border-left: 4px solid #9c27b0;
+}
+
+.competition-card.grand-debat-competition .theme-section h4,
+.competition-card.grand-debat-competition .section-info h4 {
+    color: #6a1b9a;
+}
+
+.competition-card.grand-debat-competition .theme-text,
+.competition-card.grand-debat-competition .section-text {
+    color: #8d6e63;
+    border-left: 2px solid rgba(156, 39, 176, 0.3);
+}
+
+.competition-card.grand-debat-competition .winning-team h4 {
+    color: #6a1b9a;
+}
+
+.competition-card.grand-debat-competition .team-members h5 {
+    color: #6a1b9a;
+}
+
+.competition-card.grand-debat-competition .members-list li:hover {
+    color: #6a1b9a;
+}
+
+/* === DARK MODE POUR GRAND DÉBAT === */
+body.dark .competition-card.grand-debat-competition {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 3px solid #9c27b0;
+}
+
+body.dark .competition-card.grand-debat-competition:hover {
+    border-color: #7b1fa2;
+    box-shadow: 0 20px 60px rgba(156, 39, 176, 0.3);
+}
+
+body.dark .competition-card.grand-debat-competition .competition-details {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+    border-left-color: #9c27b0;
+}
+
+body.dark .competition-card.grand-debat-competition .theme-section h4,
+body.dark .competition-card.grand-debat-competition .section-info h4 {
+    color: #ba68c8;
+    text-shadow: 0 0 8px rgba(156, 39, 176, 0.3);
+}
+
+body.dark .competition-card.grand-debat-competition .winning-team h4 {
+    color: #ba68c8;
+    text-shadow: 0 0 10px rgba(156, 39, 176, 0.3);
+}
+
+body.dark .competition-card.grand-debat-competition .team-members h5 {
+    color: #ba68c8;
+    text-shadow: 0 0 8px rgba(156, 39, 176, 0.3);
+}
+
+body.dark .competition-card.grand-debat-competition .members-list li:hover {
+    color: #ba68c8;
+    text-shadow: 0 0 5px rgba(156, 39, 176, 0.4);
+}
+
+/* === STYLES SPÉCIFIQUES POUR LA COMPÉTITION VICTORIA VERBA === */
+.competition-card.victoria-verba-competition {
+    border-left: 4px solid #2196f3;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.competition-card.victoria-verba-competition:hover {
+    border-color: #1976d2;
+    box-shadow: 0 20px 60px rgba(33, 150, 243, 0.3);
+}
+
+.competition-card.victoria-verba-competition .competition-details {
+    background: linear-gradient(135deg, rgba(227, 242, 253, 0.9), rgba(187, 222, 251, 0.9));
+    border-left: 4px solid #2196f3;
+}
+
+.competition-card.victoria-verba-competition .theme-section h4,
+.competition-card.victoria-verba-competition .section-info h4 {
+    color: #1565c0;
+}
+
+.competition-card.victoria-verba-competition .theme-text,
+.competition-card.victoria-verba-competition .section-text {
+    color: #8d6e63;
+    border-left: 2px solid rgba(33, 150, 243, 0.3);
+}
+
+.competition-card.victoria-verba-competition .winning-team h4 {
+    color: #1565c0;
+}
+
+.competition-card.victoria-verba-competition .team-members h5 {
+    color: #1565c0;
+}
+
+.competition-card.victoria-verba-competition .members-list li:hover {
+    color: #1565c0;
+}
+
+/* === DARK MODE POUR VICTORIA VERBA === */
+body.dark .competition-card.victoria-verba-competition {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 3px solid #2196f3;
+}
+
+body.dark .competition-card.victoria-verba-competition:hover {
+    border-color: #1976d2;
+    box-shadow: 0 20px 60px rgba(33, 150, 243, 0.3);
+}
+
+body.dark .competition-card.victoria-verba-competition .competition-details {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+    border-left-color: #2196f3;
+}
+
+body.dark .competition-card.victoria-verba-competition .theme-section h4,
+body.dark .competition-card.victoria-verba-competition .section-info h4 {
+    color: #64b5f6;
+    text-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+body.dark .competition-card.victoria-verba-competition .winning-team h4 {
+    color: #64b5f6;
+    text-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+}
+
+body.dark .competition-card.victoria-verba-competition .team-members h5 {
+    color: #64b5f6;
+    text-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+body.dark .competition-card.victoria-verba-competition .members-list li:hover {
+    color: #64b5f6;
+    text-shadow: 0 0 5px rgba(33, 150, 243, 0.4);
+}
+
+/* === STYLES SPÉCIFIQUES POUR LA COMPÉTITION INVICTUS === */
+.competition-card.invictus-competition {
+    border-left: 4px solid #4caf50;
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+}
+
+.competition-card.invictus-competition:hover {
+    border-color: #388e3c;
+    box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
+}
+
+.competition-card.invictus-competition .competition-details {
+    background: linear-gradient(135deg, rgba(232, 245, 232, 0.9), rgba(200, 230, 201, 0.9));
+    border-left: 4px solid #4caf50;
+}
+
+.competition-card.invictus-competition .theme-section h4,
+.competition-card.invictus-competition .section-info h4 {
+    color: #2e7d32;
+}
+
+.competition-card.invictus-competition .theme-text,
+.competition-card.invictus-competition .section-text {
+    color: #8d6e63;
+    border-left: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+.competition-card.invictus-competition .winning-team h4 {
+    color: #2e7d32;
+}
+
+.competition-card.invictus-competition .team-members h5 {
+    color: #2e7d32;
+}
+
+.competition-card.invictus-competition .members-list li:hover {
+    color: #2e7d32;
+}
+
+/* === DARK MODE POUR INVICTUS === */
+body.dark .competition-card.invictus-competition {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 3px solid #4caf50;
+}
+
+body.dark .competition-card.invictus-competition:hover {
+    border-color: #388e3c;
+    box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
+}
+
+body.dark .competition-card.invictus-competition .competition-details {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+    border-left-color: #4caf50;
+}
+
+body.dark .competition-card.invictus-competition .theme-section h4,
+body.dark .competition-card.invictus-competition .section-info h4 {
+    color: #81c784;
+    text-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+body.dark .competition-card.invictus-competition .winning-team h4 {
+    color: #81c784;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+body.dark .competition-card.invictus-competition .team-members h5 {
+    color: #81c784;
+    text-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+body.dark .competition-card.invictus-competition .members-list li:hover {
+    color: #81c784;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+}
+
+/* === SECTION BUREAU EXÉCUTIF === */
+.bureau-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.7) 0%, rgba(233, 236, 239, 0.7) 100%), 
+                url('grand_temple_dedicated_to_ancient_greek_god_by_mholtsmeier_dfsazqw-fullview.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+.bureau-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.bureau-header h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.bureau-header p {
+    font-size: 1.3rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.bureau-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === LIGNE 1: PRÉSIDENT ET VICE-PRÉSIDENT === */
+.president-card {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.vice-president-card {
+    grid-column: 3 / 5;
+    grid-row: 1;
+}
+
+/* === LIGNE 2: SECRÉTAIRE, MEDIA, SPONSORING === */
+.secretary-card {
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+
+.media-card {
+    grid-column: 2 / 3;
+    grid-row: 2;
+}
+
+.sponsoring-card {
+    grid-column: 3 / 4;
+    grid-row: 2;
+}
+
+/* === LIGNE 3: CHEFS DE LANGUES === */
+.french-card {
+    grid-column: 1 / 2;
+    grid-row: 3;
+}
+
+.english-card {
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+
+.arabic-card {
+    grid-column: 3 / 4;
+    grid-row: 3;
+}
+
+/* === LIGNE 4: FORMATION === */
+.training-card {
+    grid-column: 4 / 5;
+    grid-row: 2 / 4;
+    align-self: center;
+}
+
+/* === CARTES DES MEMBRES === */
+.bureau-member-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+
+.bureau-member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.bureau-member-card:hover::before {
+    transform: scaleX(1);
+}
+
+.bureau-member-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* === ORGANIGRAMME - STYLES GÉNÉRAUX === */
+.bureau-member-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #dee2e6;
+}
+
+/* === CARTES DE DIRECTION (PRÉSIDENT, VICE-PRÉSIDENT) === */
+.president-card,
+.vice-president-card {
+    background: white;
+    color: #495057;
+    border: 3px solid #dee2e6;
+    position: relative;
+    border-left: 4px solid #ffd700;
+    border-bottom: 4px solid #ffd700;
+}
+
+/* === CARTES OPÉRATIONNELLES === */
+.secretary-card,
+.media-card,
+.sponsoring-card {
+    background: white;
+    color: #495057;
+    border: 3px solid #dee2e6;
+    position: relative;
+    border-left: 4px solid #17a2b8;
+}
+
+/* === CARTES LANGUES === */
+.french-card,
+.english-card,
+.arabic-card {
+    background: white;
+    color: #495057;
+    border: 3px solid #dee2e6;
+    position: relative;
+    border-left: 4px solid #6f42c1;
+}
+
+/* === CARTE FORMATION === */
+.training-card {
+    background: white;
+    color: #495057;
+    border: 3px solid #dee2e6;
+    position: relative;
+    border-left: 4px solid #20c997;
+}
+
+.president-card {
+    grid-column: 1 / 2;
+}
+
+.vice-president-card {
+    grid-column: 2 / 3;
+}
+
+.sponsoring-card {
+    grid-column: 3 / 4;
+}
+
+/* === BADGES HIÉRARCHIQUES === */
+.president-card::after {
+    content: '⚖️';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #ffd700;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.vice-president-card::after {
+    content: '📊';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #ffd700;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.secretary-card::after {
+    content: '📝';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #17a2b8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+}
+
+.media-card::after {
+    content: '🎨';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #17a2b8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+}
+
+.sponsoring-card::after {
+    content: '💰';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #17a2b8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+}
+
+.french-card::after {
+    content: '🇫🇷';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #6f42c1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+}
+
+.english-card::after {
+    content: '🇬🇧';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #6f42c1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+}
+
+.arabic-card::after {
+    content: '🇸🇦';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #6f42c1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+}
+
+.training-card::after {
+    content: '📚';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #20c997;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(32, 201, 151, 0.4);
+}
+
+.president-card:hover,
+.vice-president-card:hover,
+.sponsoring-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border-color: #ffd700;
+}
+
+.president-card::after {
+    content: '👑';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: #ffd700;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.president-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+}
+
+/* === CADRE PHOTO === */
+.member-photo-frame {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #dee2e6;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.president-card .member-photo-frame {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #ffd700;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+.member-photo {
+    font-size: 3rem;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.member-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.president-card .member-photo {
+    font-size: 3.5rem;
+    color: #667eea;
+}
+
+.photo-placeholder {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.member-photo-frame:hover .photo-placeholder {
+    opacity: 1;
+}
+
+/* === INFORMATIONS MEMBRE === */
+.member-info {
+    text-align: center;
+    position: relative;
+}
+
+.member-info h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+.president-card .member-info h3 {
+    color: white;
+    font-size: 1.6rem;
+}
+
+.member-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.president-card .member-name {
+    color: #f8f9fa;
+    font-size: 1.3rem;
+}
+
+.member-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 2px solid #dee2e6;
+}
+
+.president-card .member-badge {
+    background: #ffd700;
+    color: #495057;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    border: 3px solid white;
+}
+
+/* === COULEURS SPÉCIFIQUES PAR POSTE === */
+.president-card .member-photo-frame,
+.vice-president-card .member-photo-frame,
+.sponsoring-card .member-photo-frame {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #ffd700;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+.president-card .member-photo {
+    font-size: 3.5rem;
+    color: #667eea;
+}
+
+.vice-president-card .member-photo {
+    font-size: 3.5rem;
+    color: #28a745;
+}
+
+.sponsoring-card .member-photo {
+    font-size: 3.5rem;
+    color: #ffc107;
+}
+
+.president-card .member-info h3,
+.vice-president-card .member-info h3,
+.sponsoring-card .member-info h3 {
+    color: #495057;
+    font-size: 1.6rem;
+}
+
+.president-card .member-name,
+.vice-president-card .member-name,
+.sponsoring-card .member-name {
+    color: #6c757d;
+    font-size: 1.3rem;
+}
+
+.president-card .member-badge,
+.vice-president-card .member-badge,
+.sponsoring-card .member-badge {
+    background: #ffd700;
+    color: #495057;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    border: 3px solid white;
+}
+
+.secretary-card {
+    border-left: 4px solid #17a2b8;
+}
+
+.secretary-card .member-photo {
+    color: #17a2b8;
+}
+
+.media-card {
+    border-left: 4px solid #fd7e14;
+}
+
+.media-card .member-photo {
+    color: #fd7e14;
+}
+
+.french-card {
+    border-left: 4px solid #007bff;
+}
+
+.french-card .member-photo {
+    color: #007bff;
+}
+
+.english-card {
+    border-left: 4px solid #dc3545;
+}
+
+.english-card .member-photo {
+    color: #dc3545;
+}
+
+.arabic-card {
+    border-left: 4px solid #6f42c1;
+}
+
+.arabic-card .member-photo {
+    color: #6f42c1;
+}
+
+
+
+.training-card {
+    border-left: 4px solid #20c997;
+}
+
+.training-card .member-photo {
+    color: #20c997;
+}
+
+/* === DARK MODE === */
+body.dark .bureau-section {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.85) 100%), 
+                url('grand_temple_dedicated_to_ancient_greek_god_by_mholtsmeier_dfsazqw-fullview.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dark .bureau-header h2 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark .bureau-header p {
+    color: #adb5bd;
+}
+
+body.dark .bureau-member-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    color: white;
+}
+
+body.dark .president-card,
+body.dark .vice-president-card,
+body.dark .sponsoring-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    color: white;
+}
+
+body.dark .president-card .member-info h3,
+body.dark .vice-president-card .member-info h3,
+body.dark .sponsoring-card .member-info h3 {
+    color: #f8f9fa;
+}
+
+body.dark .president-card .member-name,
+body.dark .vice-president-card .member-name,
+body.dark .sponsoring-card .member-name {
+    color: #adb5bd;
+}
+
+body.dark .bureau-member-card:hover {
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+}
+
+body.dark .member-photo-frame {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+body.dark .member-info h3 {
+    color: #f8f9fa;
+}
+
+body.dark .member-name {
+    color: #adb5bd;
+}
+
+body.dark .member-badge {
+    background: rgba(255, 215, 0, 0.9);
+    color: #1a1a2e;
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .bureau-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .president-card,
+    .vice-president-card,
+    .secretary-card,
+    .media-card,
+    .sponsoring-card,
+    .french-card,
+    .english-card,
+    .arabic-card,
+    .training-card {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        margin-bottom: 20px;
+    }
+    
+    .bureau-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .bureau-header p {
+        font-size: 1.1rem;
+    }
+    
+    .bureau-member-card {
+        padding: 20px;
+    }
+    
+    .member-photo-frame {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .president-card .member-photo-frame {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .member-photo {
+        font-size: 2.5rem;
+    }
+    
+    .president-card .member-photo {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .competitions-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .competition-card {
+        padding: 25px;
+    }
+    
+    .competition-trophy {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .competition-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .team-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.competition-description {
+    font-size: 1.1rem;
+    color: #8d6e63;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.competition-details {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.8), rgba(255, 236, 179, 0.8));
+    border-radius: 15px;
+    border-left: 4px solid #ffd700;
+}
+
+.theme-section, .section-info {
+    margin-bottom: 20px;
+}
+
+.theme-section:last-child, .section-info:last-child {
+    margin-bottom: 0;
+}
+
+.theme-section h4, .section-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #b85c00;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-text, .section-text {
+    font-size: 1rem;
+    color: #8d6e63;
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.winning-team {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.winning-team h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #b85c00;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.team-photo {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+}
+
+.team-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.5);
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.team-photo:hover .team-image {
+    transform: scale(1.1);
+}
+
+.team-members {
+    flex: 1;
+}
+
+.team-members h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #b85c00;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.members-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.members-list li {
+    font-size: 1rem;
+    color: #8d6e63;
+    padding: 8px 0;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 25px;
+    transition: all 0.3s ease;
+}
+
+.members-list li::before {
+    content: '👤';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.members-list li:hover {
+    color: #b85c00;
+    font-weight: 500;
+    transform: translateX(5px);
+}
+
+.members-list li:hover::before {
+    transform: scale(1.2);
+}
+
+/* === SECTION ÉVÉNEMENTS === */
+.evenements-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.7) 0%, rgba(233, 236, 239, 0.7) 100%), url('postaire.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.evenements-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(212,165,116,0.2)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.evenements-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.evenements-header h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #d4a574 0%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+}
+
+.evenements-header p {
+    font-size: 1.4rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.evenements-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* === CARTE VEE EXTRAORDINAIRE === */
+.vee-event-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(212, 165, 116, 0.15);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(212, 165, 116, 0.1);
+}
+
+.vee-event-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #d4a574, #b8860b, #d4a574, #b8860b);
+    border-radius: 32px;
+    z-index: -1;
+    animation: beigeBorder 3s ease-in-out infinite;
+}
+
+@keyframes goldenBorder {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+@keyframes redBorder {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+@keyframes beigeBorder {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+.vee-golden-frame {
+    position: relative;
+    z-index: 1;
+}
+
+.vee-title-golden {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.vee-title-golden h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #d4a574 0%, #b8860b 50%, #d4a574 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(212, 165, 116, 0.4);
+    animation: beigeGlow 2s ease-in-out infinite alternate;
+}
+
+.vee-image-container {
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(184, 134, 11, 0.05));
+    border-radius: 25px;
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    transition: all 0.5s ease;
+}
+
+.vee-image-container:hover {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(184, 134, 11, 0.1));
+    border-color: rgba(212, 165, 116, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(212, 165, 116, 0.2);
+}
+
+.vee-event-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4), 0 0 60px rgba(212, 165, 116, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid rgba(212, 165, 116, 0.6);
+    position: relative;
+    animation: imageFloat 3s ease-in-out infinite;
+}
+
+.vee-event-image::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #d4a574, #b8860b, #8b6914, #d4a574);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.5s ease;
+    animation: beigeBorderGlow 2s ease-in-out infinite;
+}
+
+.vee-event-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(184, 134, 11, 0.1));
+    border-radius: 20px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.vee-event-image:hover {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 25px 60px rgba(212, 165, 116, 0.6), 0 0 80px rgba(212, 165, 116, 0.4);
+    border-color: rgba(212, 165, 116, 1);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.vee-event-image:hover::before {
+    opacity: 1;
+    animation: beigeBorderGlow 1s ease-in-out infinite;
+}
+
+.vee-event-image:hover::after {
+    opacity: 1;
+}
+
+@keyframes imageFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes borderGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes redBorderGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(220, 53, 69, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes beigeBorderGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(212, 165, 116, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(212, 165, 116, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes goldenGlow {
+    0% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+    100% { text-shadow: 0 0 60px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 215, 0, 0.4); }
+}
+
+@keyframes redGlow {
+    0% { text-shadow: 0 0 40px rgba(220, 53, 69, 0.4); }
+    100% { text-shadow: 0 0 60px rgba(220, 53, 69, 0.6), 0 0 80px rgba(220, 53, 69, 0.3); }
+}
+
+@keyframes beigeGlow {
+    0% { text-shadow: 0 0 40px rgba(212, 165, 116, 0.4); }
+    100% { text-shadow: 0 0 60px rgba(212, 165, 116, 0.6), 0 0 80px rgba(212, 165, 116, 0.3); }
+}
+
+.vee-content {
+    display: grid;
+    gap: 30px;
+}
+
+.vee-introduction {
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+    border-radius: 15px;
+    border-left: 4px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vee-introduction p {
+    margin: 15px 0;
+    line-height: 1.8;
+    color: #333;
+    font-size: 16px;
+    text-align: justify;
+    font-style: italic;
+}
+
+.vee-introduction p:first-child {
+    margin-top: 0;
+}
+
+.vee-introduction p:last-child {
+    margin-bottom: 0;
+}
+
+.vee-description {
+    text-align: center;
+}
+
+.vee-description p {
+    font-size: 1.3rem;
+    color: #495057;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vee-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.vee-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d4a574;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.vee-detail-item i {
+    font-size: 1.3rem;
+    color: #b8860b;
+}
+
+.vee-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.vee-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(184, 134, 11, 0.1));
+    border-radius: 15px;
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    transition: all 0.3s ease;
+}
+
+.vee-feature:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.2), rgba(184, 134, 11, 0.2));
+    border-color: rgba(212, 165, 116, 0.6);
+}
+
+.vee-feature i {
+    font-size: 2rem;
+    color: #d4a574;
+}
+
+.vee-feature span {
+    color: #495057;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* === DARK MODE POUR ÉVÉNEMENTS === */
+body.dark .evenements-section {
+    background: linear-gradient(135deg, rgba(10, 10, 26, 0.85) 0%, rgba(26, 26, 46, 0.85) 100%), url('postaire.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dark .evenements-section::before {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,215,0,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+}
+
+body.dark .evenements-header h2 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+body.dark .evenements-header p {
+    color: #adb5bd;
+}
+
+body.dark .vee-event-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255, 215, 0, 0.1);
+}
+
+body.dark .vee-event-card::before {
+    background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffa500);
+    animation: goldenBorder 3s ease-in-out infinite;
+}
+
+body.dark .vee-title-golden h1 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 50%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    animation: goldenGlow 2s ease-in-out infinite alternate;
+}
+
+body.dark .vee-introduction {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(10, 10, 26, 0.9) 100%);
+    border-left: 4px solid #ffd700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+body.dark .vee-introduction p {
+    color: #e9ecef;
+}
+
+body.dark .vee-description p {
+    color: #f8f9fa;
+}
+
+body.dark .vee-detail-item {
+    color: #ffd700;
+}
+
+body.dark .vee-detail-item i {
+    color: #ffa500;
+}
+
+body.dark .vee-feature {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body.dark .vee-feature:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+    border-color: rgba(255, 215, 0, 0.6);
+}
+
+body.dark .vee-feature i {
+    color: #ffd700;
+}
+
+body.dark .vee-feature span {
+    color: #f8f9fa;
+}
+
+body.dark .vee-image-container {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 165, 0, 0.05));
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+body.dark .vee-image-container:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+body.dark .vee-event-image {
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+    border: 3px solid rgba(255, 215, 0, 0.6);
+}
+
+body.dark .vee-event-image::before {
+    background: linear-gradient(45deg, #ffd700, #ffa500, #ff8c00, #ffd700);
+    animation: borderGlow 2s ease-in-out infinite;
+}
+
+body.dark .vee-event-image::after {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+}
+
+body.dark .vee-event-image:hover {
+    box-shadow: 0 25px 60px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 1);
+}
+
+body.dark .vee-event-image:hover::before {
+    animation: borderGlow 1s ease-in-out infinite;
+}
+
+/* === SECTION ÉCOLES PARTENAIRES === */
+.vee-partners-section {
+    margin: 40px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-radius: 20px;
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.vee-partners-section.academic-partners {
+    margin-bottom: 20px;
+}
+
+.vee-partners-section.media-partners {
+    margin-top: 20px;
+}
+
+.vee-partners-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(212, 165, 116, 0.1) 50%, transparent 70%);
+    animation: partnerShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes partnerShimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.vee-partners-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.vee-partners-header h3 {
+    font-size: 2.2rem;
+    color: #d4a574;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.vee-partners-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4a574, #b8860b);
+    border-radius: 2px;
+}
+
+.vee-partners-header p {
+    color: #666;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.vee-partners-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vee-partner-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.9));
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(212, 165, 116, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vee-partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(212, 165, 116, 0.1), rgba(184, 134, 11, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.vee-partner-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(212, 165, 116, 0.3);
+    border-color: rgba(212, 165, 116, 0.6);
+}
+
+.vee-partner-card:hover::before {
+    opacity: 1;
+}
+
+.vee-partner-image-container {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.vee-partner-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    transition: all 0.4s ease;
+    filter: brightness(1) contrast(1);
+}
+
+.vee-partner-card:hover .vee-partner-image {
+    transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.vee-partner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.8), rgba(184, 134, 11, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.vee-partner-card:hover .vee-partner-overlay {
+    opacity: 1;
+}
+
+.vee-partner-info {
+    text-align: center;
+    color: white;
+}
+
+.vee-partner-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.vee-partner-info p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.vee-partner-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vee-partner-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #d4a574, #b8860b);
+    color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+    transition: all 0.3s ease;
+}
+
+.vee-partner-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+}
+
+.vee-partner-badge i {
+    font-size: 1.2rem;
+}
+
+.vee-partner-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.vee-partner-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 15px 10px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(184, 134, 11, 0.1));
+    border-radius: 12px;
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.vee-partner-stat:hover {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.2), rgba(184, 134, 11, 0.2));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.2);
+}
+
+.vee-partner-stat i {
+    font-size: 1.5rem;
+    color: #d4a574;
+}
+
+.vee-partner-stat span {
+    font-size: 0.9rem;
+    color: #495057;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* === DARK MODE POUR ÉCOLES PARTENAIRES === */
+body.dark .vee-partners-section {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(10, 10, 26, 0.95) 100%);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+body.dark .vee-partners-section::before {
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+}
+
+body.dark .vee-partners-header h3 {
+    color: #ffd700;
+    text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .vee-partners-header h3::after {
+    background: linear-gradient(90deg, #ffd700, #ffa500);
+}
+
+body.dark .vee-partners-header p {
+    color: #adb5bd;
+}
+
+body.dark .vee-partner-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.1);
+}
+
+body.dark .vee-partner-card::before {
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+}
+
+body.dark .vee-partner-card:hover {
+    box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.6);
+}
+
+body.dark .vee-partner-overlay {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 165, 0, 0.8));
+}
+
+body.dark .vee-partner-badge {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+body.dark .vee-partner-badge:hover {
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+body.dark .vee-partner-stat {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+body.dark .vee-partner-stat:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+}
+
+body.dark .vee-partner-stat i {
+    color: #ffd700;
+}
+
+body.dark .vee-partner-stat span {
+    color: #f8f9fa;
+}
+
+/* === PARTENAIRE MÉDIATIQUE === */
+.vee-partner-card.media-partner {
+    border: 2px solid rgba(52, 152, 219, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+}
+
+.vee-partner-card.media-partner::before {
+    background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+}
+
+.vee-partner-card.media-partner:hover {
+    border-color: rgba(52, 152, 219, 0.6);
+    box-shadow: 0 25px 60px rgba(52, 152, 219, 0.3);
+}
+
+.vee-partner-card.media-partner .vee-partner-badge {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.vee-partner-card.media-partner .vee-partner-badge:hover {
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+.vee-partner-card.media-partner .vee-partner-stat {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.vee-partner-card.media-partner .vee-partner-stat:hover {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(41, 128, 185, 0.2));
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2);
+}
+
+.vee-partner-card.media-partner .vee-partner-stat i {
+    color: #3498db;
+}
+
+.vee-partner-card.media-partner .vee-partner-overlay {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
+}
+
+/* === DARK MODE POUR PARTENAIRE MÉDIATIQUE === */
+body.dark .vee-partner-card.media-partner {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border: 2px solid rgba(52, 152, 219, 0.3);
+    box-shadow: 0 15px 40px rgba(52, 152, 219, 0.1);
+}
+
+body.dark .vee-partner-card.media-partner::before {
+    background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+}
+
+body.dark .vee-partner-card.media-partner:hover {
+    box-shadow: 0 25px 60px rgba(52, 152, 219, 0.3);
+    border-color: rgba(52, 152, 219, 0.6);
+}
+
+body.dark .vee-partner-card.media-partner .vee-partner-badge {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+body.dark .vee-partner-card.media-partner .vee-partner-badge:hover {
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+body.dark .vee-partner-card.media-partner .vee-partner-stat {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+body.dark .vee-partner-card.media-partner .vee-partner-stat:hover {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(41, 128, 185, 0.2));
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2);
+}
+
+body.dark .vee-partner-card.media-partner .vee-partner-stat i {
+    color: #3498db;
+}
+
+body.dark .vee-partner-card.media-partner .vee-partner-overlay {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
+}
+
+/* === RESPONSIVE POUR PARTENAIRES === */
+@media (max-width: 768px) {
+    .vee-partners-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .vee-partner-card {
+        max-width: 100%;
+    }
+}
