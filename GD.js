@@ -49,33 +49,183 @@ const htmlTag = document.documentElement;
 const translations = {
     fr: {
         accueil: 'Accueil',
+        aPropos: 'À propos',
         palmares: 'Palmarès',
         bureau: 'Bureau',
-        revue: 'Revue',
+        evenements: 'Événements',
         contact: 'Contact',
         label: 'FR',
         anniversaryTitle: '🎉 Anniversaire du club',
-        anniversaryText: 'Le club a été fondé le <b>23 octobre 2020</b> <span style="font-size:1.2em">🎂</span>'
+        anniversaryText: 'Le club a été fondé le <b>23 octobre 2020</b> <span style="font-size:1.2em">🎂</span>',
+        historyTitle: '📜 Histoire du Club',
+        historySubtitle: 'Les fondateurs et créateurs qui ont bâti Great Debaters EHTP',
+        founder: 'Fondateur',
+        firstMilestone: 'Premier jalon',
+        coFounders: 'Co-fondateurs',
+        logoCreator: 'Créateur du logo',
+        firstVEEOrganizer: 'Première organisatrice VEE',
+        siteDeveloper: 'Développeur du site',
+        competitionsTitle: '🏆 Compétitions Gagnées',
+        competitionsSubtitle: 'Nos victoires et trophées dans les compétitions de débat',
+        agoraTitle: 'Agora ENCG Casablanca',
+        agoraDescription: 'Première place à la compétition de débat Agora organisée par l\'ENCG Casablanca',
+        agoraTheme: 'L\'Afrique entre mémoire et espoir: Une quête d\'identité et d\'innovation',
+        agoraSection: 'Section: Arabe',
+        veeTitle: 'Valse des Esprits Éclairés (VEE)',
+        veeDescription: 'Première place à la compétition de débat VEE',
+        veeTheme: 'L\'humanité entre transhumanisme et déshumanisation',
+        veeSection: 'Section: Arabe',
+        grandDebatTitle: 'Grand Débat',
+        grandDebatDescription: 'Première place à la compétition de débat Grand Débat',
+        grandDebatTheme: '',
+        grandDebatSection: 'Section: Arabe',
+        victoriaVerbaTitle: 'Victoria Verba à l\'ENSAM',
+        victoriaVerbaDescription: 'Première place à la compétition de débat Victoria Verba',
+        victoriaVerbaTheme: 'Vaincre ou être vaincu',
+        victoriaVerbaSection: 'Section: Arabe',
+        invictusTitle: 'Invictus à ENCG Fès',
+        invictusDescription: 'Première place à la compétition de débat Invictus',
+        invictusTheme: 'L\'homme est un loup pour l\'homme',
+        invictusSection: 'Section: Arabe',
+        winningTeam: 'Équipe Gagnante',
+        teamMembers: 'Membres de l\'équipe',
+        evenementsTitle: '🎪 Notre Événement',
+        evenementsSubtitle: 'Découvrez notre événement majeur et nos moments forts',
+        veeTitle: 'La Valse des Esprits Éclairés',
+        veeDescription: 'Notre événement phare annuel de débat',
+        veeDate: 'Date à venir',
+        veeLocation: 'EHTP, Casablanca',
+        bureauTitle: '🏛️ Bureau Exécutif',
+        bureauSubtitle: 'Notre équipe dirigeante dédiée à l\'excellence',
+        president: 'Président',
+        vicePresident: 'Vice-Président',
+        secretaryGeneral: 'Secrétaire Général',
+        mediaDesignChief: 'Chef Media & Design',
+        frenchSectionChief: 'Chef Section Française',
+        englishSectionChief: 'Chef Section Anglaise',
+        arabicSectionChief: 'Chef Section Arabe',
+        sponsoringChief: 'Chef Sponsoring',
+        trainingChief: 'Chef Formation'
     },
     en: {
         accueil: 'Home',
+        aPropos: 'About',
         palmares: 'Awards',
         bureau: 'Board',
-        revue: 'Review',
+        evenements: 'Events',
         contact: 'Contact',
         label: 'EN',
         anniversaryTitle: '🎉 Club Anniversary',
-        anniversaryText: 'The club was founded on <b>October 23, 2020</b> <span style="font-size:1.2em">🎂</span>'
+        anniversaryText: 'The club was founded on <b>October 23, 2020</b> <span style="font-size:1.2em">🎂</span>',
+        historyTitle: '📜 Club History',
+        historySubtitle: 'The founders and creators who built Great Debaters EHTP',
+        founder: 'Founder',
+        firstMilestone: 'First milestone',
+        coFounders: 'Co-founders',
+        logoCreator: 'Logo creator',
+        firstVEEOrganizer: 'First VEE organizer',
+        siteDeveloper: 'Site developer',
+        competitionsTitle: '🏆 Won Competitions',
+        competitionsSubtitle: 'Our victories and trophies in debate competitions',
+        agoraTitle: 'Agora ENCG Casablanca',
+        agoraDescription: 'First place in the Agora debate competition organized by ENCG Casablanca',
+        agoraTheme: 'Africa between memory and hope: A quest for identity and innovation',
+        agoraSection: 'Section: Arabic',
+        veeTitle: 'Valse des Esprits Éclairés (VEE)',
+        veeDescription: 'First place in the VEE debate competition',
+        veeTheme: 'Humanity between transhumanism and dehumanization',
+        veeSection: 'Section: Arabic',
+        grandDebatTitle: 'Grand Débat',
+        grandDebatDescription: 'First place in the Grand Débat debate competition',
+        grandDebatTheme: '',
+        grandDebatSection: 'Section: Arabic',
+        victoriaVerbaTitle: 'Victoria Verba at ENSAM',
+        victoriaVerbaDescription: 'First place in the Victoria Verba debate competition',
+        victoriaVerbaTheme: 'Win or be defeated',
+        victoriaVerbaSection: 'Section: Arabic',
+        invictusTitle: 'Invictus at ENCG Fès',
+        invictusDescription: 'First place in the Invictus debate competition',
+        invictusTheme: 'Man is a wolf to man',
+        invictusSection: 'Section: Arabic',
+        winningTeam: 'Winning Team',
+        teamMembers: 'Team Members',
+        evenementsTitle: '🎪 Our Event',
+        evenementsSubtitle: 'Discover our major event and highlights',
+        veeTitle: 'The Waltz of Enlightened Spirits',
+        veeDescription: 'Our flagship annual debate event',
+        veeDate: 'Date to be announced',
+        veeLocation: 'EHTP, Casablanca',
+        bureauTitle: '🏛️ Executive Board',
+        bureauSubtitle: 'Our dedicated leadership team for excellence',
+        president: 'President',
+        vicePresident: 'Vice-President',
+        secretaryGeneral: 'Secretary General',
+        mediaDesignChief: 'Media & Design Chief',
+        frenchSectionChief: 'French Section Chief',
+        englishSectionChief: 'English Section Chief',
+        arabicSectionChief: 'Arabic Section Chief',
+        sponsoringChief: 'Sponsoring Chief',
+        trainingChief: 'Training Chief'
     },
     ar: {
         accueil: 'الرئيسية',
+        aPropos: 'حول',
         palmares: 'الجوائز',
         bureau: 'المكتب',
-        revue: 'المجلة',
+        evenements: 'الأحداث',
         contact: 'اتصل',
         label: 'AR',
         anniversaryTitle: '🎉 ذكرى تأسيس النادي',
-        anniversaryText: 'تأسس النادي في <b>23 أكتوبر 2020</b> <span style="font-size:1.2em">🎂</span>'
+        anniversaryText: 'تأسس النادي في <b>23 أكتوبر 2020</b> <span style="font-size:1.2em">🎂</span>',
+        historyTitle: '📜 تاريخ النادي',
+        historySubtitle: 'المؤسسون والمبدعون الذين بنوا Great Debaters EHTP',
+        founder: 'المؤسس',
+        firstMilestone: 'أول معلم',
+        coFounders: 'المؤسسون المشاركون',
+        logoCreator: 'مصمم الشعار',
+        firstVEEOrganizer: 'أول منظم VEE',
+        siteDeveloper: 'مطور الموقع',
+        competitionsTitle: '🏆 المسابقات المربوحة',
+        competitionsSubtitle: 'انتصاراتنا وأجوائنا في مسابقات المناظرة',
+        agoraTitle: 'أغورا ENCG الدار البيضاء',
+        agoraDescription: 'المركز الأول في مسابقة المناظرة أغورا التي نظمتها ENCG الدار البيضاء',
+        agoraTheme: 'أفريقيا بين الذاكرة والأمل: بحث عن الهوية والابتكار',
+        agoraSection: 'القسم: العربية',
+        veeTitle: 'Valse des Esprits Éclairés (VEE)',
+        veeDescription: 'المركز الأول في مسابقة المناظرة VEE',
+        veeTheme: 'الإنسانية بين الترانزومانية وإزالة الإنسانية',
+        veeSection: 'القسم: العربية',
+        grandDebatTitle: 'Grand Débat',
+        grandDebatDescription: 'المركز الأول في مسابقة المناظرة Grand Débat',
+        grandDebatTheme: '',
+        grandDebatSection: 'القسم: العربية',
+        victoriaVerbaTitle: 'Victoria Verba في ENSAM',
+        victoriaVerbaDescription: 'المركز الأول في مسابقة المناظرة Victoria Verba',
+        victoriaVerbaTheme: 'الانتصار أو الهزيمة',
+        victoriaVerbaSection: 'القسم: العربية',
+        invictusTitle: 'Invictus في ENCG فاس',
+        invictusDescription: 'المركز الأول في مسابقة المناظرة Invictus',
+        invictusTheme: 'الإنسان ذئب للإنسان',
+        invictusSection: 'القسم: العربية',
+        winningTeam: 'الفريق الفائز',
+        teamMembers: 'أعضاء الفريق',
+        evenementsTitle: '🎪 حدثنا',
+        evenementsSubtitle: 'اكتشفوا حدثنا الرئيسي ولحظاتنا المميزة',
+        veeTitle: 'فالس الأرواح المستنيرة',
+        veeDescription: 'حدثنا السنوي الرئيسي للمناظرة',
+        veeDate: 'التاريخ سيُعلن لاحقاً',
+        veeLocation: 'EHTP، الدار البيضاء',
+        bureauTitle: '🏛️ المكتب التنفيذي',
+        bureauSubtitle: 'فريقنا القيادي المكرس للتميز',
+        president: 'الرئيس',
+        vicePresident: 'نائب الرئيس',
+        secretaryGeneral: 'الأمين العام',
+        mediaDesignChief: 'رئيس الإعلام والتصميم',
+        frenchSectionChief: 'رئيس القسم الفرنسي',
+        englishSectionChief: 'رئيس القسم الإنجليزي',
+        arabicSectionChief: 'رئيس القسم العربي',
+        sponsoringChief: 'رئيس الرعاية',
+        trainingChief: 'رئيس التدريب'
     }
 };
 const mainContent = document.getElementById('main-content');
@@ -661,6 +811,7 @@ function translateContent(lang) {
     const translations = {
         fr: {
             'accueil': 'Accueil',
+            'a-propos': 'À propos',
             'palmares': 'Palmarès',
             'bureau': 'Bureau',
             'revue': 'Revue',
@@ -695,6 +846,7 @@ function translateContent(lang) {
         },
         ar: {
             'accueil': 'الرئيسية',
+            'a-propos': 'حول',
             'palmares': 'الإنجازات',
             'bureau': 'المكتب',
             'revue': 'المجلة',
@@ -729,6 +881,7 @@ function translateContent(lang) {
         },
         en: {
             'accueil': 'Home',
+            'a-propos': 'About',
             'palmares': 'Achievements',
             'bureau': 'Board',
             'revue': 'Magazine',
@@ -1175,6 +1328,272 @@ document.querySelectorAll('.nav-item').forEach(item => {
             `;
             
             mainContent.innerHTML = annivHTML + `
+                <section class="history-section">
+                    <div class="history-header">
+                        <h2>${translations[currentLang].historyTitle}</h2>
+                        <p>${translations[currentLang].historySubtitle}</p>
+                    </div>
+                    <div class="history-content">
+                        <div class="history-card founder">
+                            <div class="history-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="history-info">
+                                <h3>${translations[currentLang].founder}</h3>
+                                <p class="history-name">Hamza Senhajir</p>
+                            </div>
+                        </div>
+                        <div class="history-card milestone">
+                            <div class="history-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="history-info">
+                                <h3>${translations[currentLang].firstMilestone}</h3>
+                                <p class="history-name">Marouane Mouhout</p>
+                            </div>
+                        </div>
+                        <div class="history-card cofounders">
+                            <div class="history-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="history-info">
+                                <h3>${translations[currentLang].coFounders}</h3>
+                                <p class="history-name">Zakaria Tajmoute</p>
+                                <p class="history-name">Youness Bellafkih</p>
+                                <p class="history-name">Meriam Guaybess</p>
+                            </div>
+                        </div>
+                        <div class="history-card logo">
+                            <div class="history-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="history-info">
+                                <h3>${translations[currentLang].logoCreator}</h3>
+                                <p class="history-name">Yassine Echeblaoui</p>
+                            </div>
+                        </div>
+                        <div class="history-card vee">
+                            <div class="history-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="history-info">
+                                <h3>${translations[currentLang].firstVEEOrganizer}</h3>
+                                <p class="history-name">Hiba Hafid</p>
+                            </div>
+                        </div>
+                        <div class="history-card developer">
+                            <div class="history-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="history-info">
+                                <h3>${translations[currentLang].siteDeveloper}</h3>
+                                <p class="history-name">Nadahe Mohammed</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="competitions-section">
+                    <div class="competitions-header">
+                        <h2>${translations[currentLang].competitionsTitle}</h2>
+                        <p>${translations[currentLang].competitionsSubtitle}</p>
+                    </div>
+                    <div class="competitions-content">
+                        <div class="competition-card">
+                            <div class="competition-trophy">
+                                <img src="Trophees/1.png" alt="Trophée Agora" class="trophy-image">
+                                <div class="trophy-glow"></div>
+                            </div>
+                            <div class="competition-info">
+                                <h3>${translations[currentLang].agoraTitle}</h3>
+                                <p class="competition-description">${translations[currentLang].agoraDescription}</p>
+                                
+                                <div class="competition-details">
+                                    <div class="theme-section">
+                                        <h4>🎯 Thème de la compétition</h4>
+                                        <p class="theme-text">${translations[currentLang].agoraTheme}</p>
+                                    </div>
+                                    
+                                    <div class="section-info">
+                                        <h4>📚 Section</h4>
+                                        <p class="section-text">${translations[currentLang].agoraSection}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="winning-team">
+                                    <h4>${translations[currentLang].winningTeam}</h4>
+                                    <div class="team-content">
+                                        <div class="team-photo">
+                                            <img src="equipe/Design sans titre.png" alt="Équipe gagnante" class="team-image">
+                                        </div>
+                                        <div class="team-members">
+                                            <h5>${translations[currentLang].teamMembers}</h5>
+                                            <ul class="members-list">
+                                                <li>Chaymae Haida</li>
+                                                <li>Bekkali Mohammed El Habib</li>
+                                                <li>Mohamed Amine El Aagouby</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-card vee-competition">
+                            <div class="competition-trophy">
+                                <img src="Trophees/2.png" alt="Trophée VEE" class="trophy-image">
+                                <div class="trophy-glow"></div>
+                            </div>
+                            <div class="competition-info">
+                                <h3>${translations[currentLang].veeTitle}</h3>
+                                <p class="competition-description">${translations[currentLang].veeDescription}</p>
+                                
+                                <div class="competition-details">
+                                    <div class="theme-section">
+                                        <h4>🎯 Thème de la compétition</h4>
+                                        <p class="theme-text">${translations[currentLang].veeTheme}</p>
+                                    </div>
+                                    
+                                    <div class="section-info">
+                                        <h4>📚 Section</h4>
+                                        <p class="section-text">${translations[currentLang].veeSection}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="winning-team">
+                                    <h4>${translations[currentLang].winningTeam}</h4>
+                                    <div class="team-content">
+                                        <div class="team-photo">
+                                            <img src="equipe/Vee equipe.png" alt="Équipe VEE gagnante" class="team-image">
+                                        </div>
+                                        <div class="team-members">
+                                            <h5>${translations[currentLang].teamMembers}</h5>
+                                            <ul class="members-list">
+                                                <li>Jamila El Harrouch</li>
+                                                <li>Bekkali Mohammed El Habib</li>
+                                                <li>Mohamed El-Afi</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-card grand-debat-competition">
+                            <div class="competition-trophy">
+                                <img src="Trophees/5.png" alt="Trophée Grand Débat" class="trophy-image">
+                                <div class="trophy-glow"></div>
+                            </div>
+                            <div class="competition-info">
+                                <h3>${translations[currentLang].grandDebatTitle}</h3>
+                                <p class="competition-description">${translations[currentLang].grandDebatDescription}</p>
+                                
+                                <div class="competition-details">
+                                    <div class="section-info">
+                                        <h4>📚 Section</h4>
+                                        <p class="section-text">${translations[currentLang].grandDebatSection}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="winning-team">
+                                    <h4>${translations[currentLang].winningTeam}</h4>
+                                    <div class="team-content">
+                                        <div class="team-photo">
+                                            <img src="equipe/Le grand debat.png" alt="Équipe Grand Débat gagnante" class="team-image">
+                                        </div>
+                                        <div class="team-members">
+                                            <h5>${translations[currentLang].teamMembers}</h5>
+                                            <ul class="members-list">
+                                                <li>زينب البغوري</li>
+                                                <li>محمد الشاتي</li>
+                                                <li>امباركة افنيدو</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-card victoria-verba-competition">
+                            <div class="competition-trophy">
+                                <img src="Trophees/6.png" alt="Trophée Victoria Verba" class="trophy-image">
+                                <div class="trophy-glow"></div>
+                            </div>
+                            <div class="competition-info">
+                                <h3>${translations[currentLang].victoriaVerbaTitle}</h3>
+                                <p class="competition-description">${translations[currentLang].victoriaVerbaDescription}</p>
+                                
+                                <div class="competition-details">
+                                    <div class="theme-section">
+                                        <h4>🎯 Thème de la compétition</h4>
+                                        <p class="theme-text">${translations[currentLang].victoriaVerbaTheme}</p>
+                                    </div>
+                                    
+                                    <div class="section-info">
+                                        <h4>📚 Section</h4>
+                                        <p class="section-text">${translations[currentLang].victoriaVerbaSection}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="winning-team">
+                                    <h4>${translations[currentLang].winningTeam}</h4>
+                                    <div class="team-content">
+                                        <div class="team-photo">
+                                            <img src="equipe/Victoria1.png" alt="Équipe Victoria Verba gagnante" class="team-image">
+                                        </div>
+                                        <div class="team-members">
+                                            <h5>${translations[currentLang].teamMembers}</h5>
+                                            <ul class="members-list">
+                                                <li>Mohamed El-Afi</li>
+                                                <li>Meryam Dahir</li>
+                                                <li>Hind Amil</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-card invictus-competition">
+                            <div class="competition-trophy">
+                                <img src="Trophees/7.png" alt="Trophée Invictus" class="trophy-image">
+                                <div class="trophy-glow"></div>
+                            </div>
+                            <div class="competition-info">
+                                <h3>${translations[currentLang].invictusTitle}</h3>
+                                <p class="competition-description">${translations[currentLang].invictusDescription}</p>
+                                
+                                <div class="competition-details">
+                                    <div class="theme-section">
+                                        <h4>🎯 Thème de la compétition</h4>
+                                        <p class="theme-text">${translations[currentLang].invictusTheme}</p>
+                                    </div>
+                                    
+                                    <div class="section-info">
+                                        <h4>📚 Section</h4>
+                                        <p class="section-text">${translations[currentLang].invictusSection}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="winning-team">
+                                    <h4>${translations[currentLang].winningTeam}</h4>
+                                    <div class="team-content">
+                                        <div class="team-photo">
+                                            <img src="equipe/Invictus.png" alt="Équipe Invictus gagnante" class="team-image">
+                                        </div>
+                                        <div class="team-members">
+                                            <h5>${translations[currentLang].teamMembers}</h5>
+                                            <ul class="members-list">
+                                                <li>Mohamed El-Afi</li>
+                                                <li>Imane Aghad</li>
+                                                <li>Meryam Dahir</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section class="palmares-section">
                     <div class="palmares-header">
                         <h2>Palmarès</h2>
@@ -1187,13 +1606,6 @@ document.querySelectorAll('.nav-item').forEach(item => {
                             </div>
                             <h3>Championnat National 2023</h3>
                             <p>Première place au championnat national de débat</p>
-                        </div>
-                        <div class="achievement-card">
-                            <div class="achievement-icon">
-                                <i class="fas fa-medal"></i>
-                            </div>
-                            <h3>Tournoi International</h3>
-                            <p>Finaliste au tournoi international de débat</p>
                         </div>
                         <div class="achievement-card">
                             <div class="achievement-icon">
@@ -1318,14 +1730,14 @@ function translateDefinitionContent(lang) {
             members: 'Membres Actifs',
             membersDesc: 'Étudiants formés chaque année',
             trophies: 'Trophées Gagnés',
-            trophiesDesc: 'Tournois nationaux et internationaux',
+            trophiesDesc: 'Compétitions nationales',
             chart: 'Évolution du Nombre de Membres',
             chartDesc: 'Cette courbe montre l\'évolution du nombre de nouveaux membres qui rejoignent le club Great Debaters EHTP chaque année, démontrant notre croissance constante et notre attractivité croissante auprès des étudiants.',
             activities: 'Nos Activités',
             debates: 'Débats Réguliers',
             debatesText: 'Sessions hebdomadaires de débat sur des sujets d\'actualité, politiques, économiques et sociaux.',
             competitions: 'Compétitions',
-            competitionsText: 'Participation aux tournois nationaux et internationaux de débat avec un palmarès exceptionnel.',
+            competitionsText: 'Participation aux compétitions nationales de débat avec un palmarès exceptionnel.',
             training: 'Formation',
             trainingText: 'Ateliers de formation en techniques de débat, éloquence et art oratoire pour tous les niveaux.',
             events: 'Événements',
@@ -1443,6 +1855,64 @@ function translateDefinitionContent(lang) {
             howToJoin: 'كيف تنضم إلينا؟',
             joinText: 'التسجيلات مفتوحة لجميع طلاب EHTP. اتصل بنا لمزيد من المعلومات حول جلسات التجربة وبرامج التدريب.',
             contactUs: 'اتصل بنا'
+        }
+    };
+    
+    // Traductions pour les partenaires
+    i18n.partners = {
+        fr: {
+            academicPartners: "Écoles Partenaires",
+            academicPartnersDesc: "Découvrez nos partenaires académiques prestigieux",
+            academicPartner: "Partenaire Académique",
+            academicCollaboration: "Collaboration d'excellence",
+            officialPartner: "Partenaire Officiel",
+            excellence: "Excellence",
+            quality: "Qualité",
+            formation: "Formation",
+            mediaPartners: "Partenaires Médiatiques",
+            mediaPartnersDesc: "Découvrez nos partenaires médiatiques d'excellence",
+            mediaPartner: "Partenaire Médiatique",
+            mediaCoverage: "Couverture médiatique d'excellence",
+            mediaPartnerBadge: "Partenaire Média",
+            coverage: "Couverture",
+            press: "Presse",
+            reportage: "Reportage"
+        },
+        en: {
+            academicPartners: "Academic Partners",
+            academicPartnersDesc: "Discover our prestigious academic partners",
+            academicPartner: "Academic Partner",
+            academicCollaboration: "Excellence collaboration",
+            officialPartner: "Official Partner",
+            excellence: "Excellence",
+            quality: "Quality",
+            formation: "Formation",
+            mediaPartners: "Media Partners",
+            mediaPartnersDesc: "Discover our excellent media partners",
+            mediaPartner: "Media Partner",
+            mediaCoverage: "Excellent media coverage",
+            mediaPartnerBadge: "Media Partner",
+            coverage: "Coverage",
+            press: "Press",
+            reportage: "Reportage"
+        },
+        ar: {
+            academicPartners: "الشركاء الأكاديميون",
+            academicPartnersDesc: "اكتشف شركاءنا الأكاديميين المرموقين",
+            academicPartner: "شريك أكاديمي",
+            academicCollaboration: "تعاون متميز",
+            officialPartner: "شريك رسمي",
+            excellence: "التميز",
+            quality: "الجودة",
+            formation: "التكوين",
+            mediaPartners: "الشركاء الإعلاميون",
+            mediaPartnersDesc: "اكتشف شركاءنا الإعلاميين المتميزين",
+            mediaPartner: "شريك إعلامي",
+            mediaCoverage: "تغطية إعلامية متميزة",
+            mediaPartnerBadge: "شريك إعلامي",
+            coverage: "التغطية",
+            press: "الصحافة",
+            reportage: "التقرير"
         }
     };
     
@@ -2182,6 +2652,12 @@ function loadSection(section) {
     // Charger le contenu
     if (section === 'accueil') {
         loadHomeSection();
+    } else if (section === 'a-propos') {
+        loadDefinitionSection();
+    } else if (section === 'bureau') {
+        loadBureauSection();
+    } else if (section === 'evenements') {
+        loadEvenementsSection();
     } else if (section === 'contact') {
         renderContactSection(currentLang);
     } else {
@@ -2194,6 +2670,298 @@ function loadHomeSection() {
     const mainContent = document.getElementById('main-content');
     mainContent.innerHTML = carouselHTML[currentLang];
     initCarousel();
+    translateContent(currentLang);
+}
+
+function loadBureauSection() {
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = `
+        <section class="bureau-section">
+            <div class="bureau-header">
+                <h2>${translations[currentLang].bureauTitle}</h2>
+                <p>${translations[currentLang].bureauSubtitle}</p>
+            </div>
+            
+            <div class="bureau-content">
+                <!-- Président au centre -->
+                <div class="bureau-member-card president-card">
+                    <div class="member-photo-frame">
+                        <img src="board/nadahe.png" alt="Nadahe Mohammed - Président" class="member-photo-img">
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].president}</h3>
+                        <p class="member-name">Nadahe Mohammed</p>
+                        <div class="member-badge">⚖️</div>
+                    </div>
+                </div>
+                
+                <!-- Vice-Président -->
+                <div class="bureau-member-card vice-president-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].vicePresident}</h3>
+                        <p class="member-name">Douae El Khadiri</p>
+                        <div class="member-badge">📊</div>
+                    </div>
+                </div>
+                
+                <!-- Secrétaire Général -->
+                <div class="bureau-member-card secretary-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].secretaryGeneral}</h3>
+                        <p class="member-name">Ahmed Fouad Goughelt</p>
+                        <div class="member-badge">📝</div>
+                    </div>
+                </div>
+                
+                <!-- Chef Media & Design -->
+                <div class="bureau-member-card media-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].mediaDesignChief}</h3>
+                        <p class="member-name">Amine Hamdaoui</p>
+                        <div class="member-badge">🎨</div>
+                    </div>
+                </div>
+                
+                <!-- Chef Section Française -->
+                <div class="bureau-member-card french-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].frenchSectionChief}</h3>
+                        <p class="member-name">Bérete Lonceny</p>
+                        <div class="member-badge">🇫🇷</div>
+                    </div>
+                </div>
+                
+                <!-- Chef Section Anglaise -->
+                <div class="bureau-member-card english-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-flag-usa"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].englishSectionChief}</h3>
+                        <p class="member-name">Mohammed Yassine Djaouane</p>
+                        <div class="member-badge">🇬🇧</div>
+                    </div>
+                </div>
+                
+                <!-- Chef Section Arabe -->
+                <div class="bureau-member-card arabic-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-star-and-crescent"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].arabicSectionChief}</h3>
+                        <p class="member-name">Salma Bouabane</p>
+                        <div class="member-badge">🇸🇦</div>
+                    </div>
+                </div>
+                
+                <!-- Chef Sponsoring -->
+                <div class="bureau-member-card sponsoring-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].sponsoringChief}</h3>
+                        <p class="member-name">Zainab Habbassi</p>
+                        <div class="member-badge">💰</div>
+                    </div>
+                </div>
+                
+                <!-- Chef Formation -->
+                <div class="bureau-member-card training-card">
+                    <div class="member-photo-frame">
+                        <div class="member-photo">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="photo-placeholder">📸 Photo</div>
+                    </div>
+                    <div class="member-info">
+                        <h3>${translations[currentLang].trainingChief}</h3>
+                        <p class="member-name">Islam Oufir</p>
+                        <div class="member-badge">📚</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+    
+    // Appliquer les traductions
+    translateContent(currentLang);
+}
+
+function loadEvenementsSection() {
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = `
+        <section class="evenements-section">
+            <div class="evenements-header">
+                <h2>${translations[currentLang].evenementsTitle}</h2>
+                <p>${translations[currentLang].evenementsSubtitle}</p>
+            </div>
+            
+            <div class="evenements-content">
+                <!-- VEE - Événement Principal -->
+                <div class="vee-event-card">
+                    <div class="vee-golden-frame">
+                        <div class="vee-title-golden">
+                            <h1>La Valse des Esprits Éclairés</h1>
+                        </div>
+                        <div class="vee-image-container">
+                            <img src="La Valse des Esprits éclairés.png" alt="La Valse des Esprits Éclairés" class="vee-event-image">
+                        </div>
+                        <div class="vee-content">
+                            <div class="vee-introduction">
+                                <p>Conscients de l'ampleur et l'ultime importance que jouent les compétitions nationales et régionales de débat, nous, The Great Debaters EHTP, avons condensés nos efforts pour garder une emprunte indélébile au sein de la communauté.</p>
+                                <p>Ainsi, nous concrétisons enfin un projet sur lequel quatre mandats successifs ont contribué avec un engagement soutenu et une détermination sans faille, y mettant leur cœur et leur âme pour offrir une expérience gratifiante aux participants, et un succès phénoménal à la famille TGD EHTP.</p>
+                                <p>Dans cette quête incessante de l'excellence, notre collectif a eu l'ineffable privilège d'organiser, cette année, la première édition tant attendue de la compétition nationale de débat, pérennisant ainsi une tradition intellectuelle et rhétorique au sein même de notre réseau.</p>
+                            </div>
+                            <div class="vee-description">
+                                <p>${translations[currentLang].veeDescription}</p>
+                            </div>
+                            <div class="vee-details">
+                                <div class="vee-detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>${translations[currentLang].veeDate}</span>
+                                </div>
+                                <div class="vee-detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${translations[currentLang].veeLocation}</span>
+                                </div>
+                            </div>
+                            <div class="vee-features">
+                                <div class="vee-feature">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Débats</span>
+                                </div>
+                                <div class="vee-feature">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Compétition</span>
+                                </div>
+                                <div class="vee-feature">
+                                    <i class="fas fa-users"></i>
+                                    <span>Réseautage</span>
+                                </div>
+                            </div>
+                            
+                            <div class="vee-partners-section academic-partners">
+                                <div class="vee-partners-header">
+                                    <h3>🏛️ <span class="translate" data-key="partners.academicPartners">Écoles Partenaires</span></h3>
+                                    <p class="translate" data-key="partners.academicPartnersDesc">Découvrez nos partenaires académiques prestigieux</p>
+                                </div>
+                                <div class="vee-partners-content">
+                                    <div class="vee-partner-card">
+                                        <div class="vee-partner-image-container">
+                                            <img src="ecole partenaire.png" alt="École Partenaire" class="vee-partner-image">
+                                            <div class="vee-partner-overlay">
+                                                <div class="vee-partner-info">
+                                                    <h4>Partenaire Académique</h4>
+                                                    <p>Collaboration d'excellence</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vee-partner-details">
+                                            <div class="vee-partner-badge">
+                                                <i class="fas fa-handshake"></i>
+                                                <span>Partenaire Officiel</span>
+                                            </div>
+                                            <div class="vee-partner-stats">
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-star"></i>
+                                                    <span>Excellence</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-award"></i>
+                                                    <span>Qualité</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                    <span>Formation</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="vee-partners-section media-partners">
+                                <div class="vee-partners-header">
+                                    <h3>📺 <span class="translate" data-key="partners.mediaPartners">Partenaires Médiatiques</span></h3>
+                                    <p class="translate" data-key="partners.mediaPartnersDesc">Découvrez nos partenaires médiatiques d'excellence</p>
+                                </div>
+                                <div class="vee-partners-content">
+                                    <div class="vee-partner-card">
+                                        <div class="vee-partner-image-container">
+                                            <img src="mediatique.png" alt="Partenaire Médiatique" class="vee-partner-image">
+                                            <div class="vee-partner-overlay">
+                                                <div class="vee-partner-info">
+                                                    <h4>Partenaire Médiatique</h4>
+                                                    <p>Couverture médiatique d'excellence</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vee-partner-details">
+                                            <div class="vee-partner-badge">
+                                                <i class="fas fa-broadcast-tower"></i>
+                                                <span>Partenaire Média</span>
+                                            </div>
+                                            <div class="vee-partner-stats">
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-tv"></i>
+                                                    <span>Couverture</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-newspaper"></i>
+                                                    <span>Presse</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-video"></i>
+                                                    <span>Reportage</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+    
+    // Appliquer les traductions
     translateContent(currentLang);
 }
 // ... existing code ...
