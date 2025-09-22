@@ -4,10 +4,7 @@ navItems.forEach(item => {
     item.addEventListener('click', function() {
         document.querySelector('.nav-item.active').classList.remove('active');
         this.classList.add('active');
-        // document.getElementById('main-content').innerHTML = `<h2>${this.textContent}</h2>`;
-        // Scroll animé vers la section (si id existe)
-        // const section = document.getElementById(this.dataset.section);
-        // if(section) section.scrollIntoView({behavior: 'smooth'});
+        
     });
 });
 
@@ -40,11 +37,7 @@ navItems.forEach(item => {
     });
 });
 
-// Dropdown langue
-const langDropBtn = document.querySelector('.lang-dropbtn');
-const langDropdown = document.querySelector('.lang-dropdown-content');
-const langLabel = document.querySelector('.lang-label');
-const langLinks = langDropdown.querySelectorAll('a');
+// Variables globales
 const htmlTag = document.documentElement;
 const translations = {
     fr: {
@@ -563,10 +556,10 @@ const carouselHTML = {
             <div class="carousel-container">
                 <div class="carousel">
                     <div class="carousel-slide active">
-                        <img src="Screenshot_2025-07-17-15-54-08-143_com.whatsapp-edit.jpg" alt="Photo 1">
+                        <img src="_52A5326.jpg" alt="Photo 1">
                     </div>
                     <div class="carousel-slide">
-                        <img src="Screenshot_2025-07-17-15-53-18-509_com.android.chrome-edit.jpg" alt="Photo 2">
+                        <img src="IMG-20250605-WA0011.jpg" alt="Photo 2">
                     </div>
                     <div class="carousel-slide">
                         <img src="_52A5289.jpg" alt="Photo 3">
@@ -575,11 +568,11 @@ const carouselHTML = {
                         <img src="_52A5326.jpg" alt="Photo 4">
                     </div>
                 </div>
-                <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
-                <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
+                <button class="carousel-btn prev" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <h1 class="carousel-title">Great Debaters EHTP</h1>
-            <blockquote class="carousel-quote">« Le débat n'est pas un champ de bataille, mais un atelier d'idées où se forge la compréhension mutuelle »</blockquote>
+            <h1 class="carousel-title">The Great Debaters EHTP</h1>
+            <blockquote class="carousel-quote">"L'éloquence est l'art de dire les bonnes choses au bon moment"</blockquote>
             ${exploreBtnHTML.fr}
         </section>
     `,
@@ -634,59 +627,8 @@ const carouselHTML = {
         </section>
     `
 };
-let langDropdownOpen = false;
 let currentLang = 'fr'; // français par défaut
 let currentSection = 'accueil';
-langDropBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    langDropdownOpen = !langDropdownOpen;
-    langDropdown.style.display = langDropdownOpen ? 'block' : 'none';
-    if (langDropdownOpen) {
-        langLinks[0].focus();
-    }
-});
-langLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const lang = this.getAttribute('data-lang');
-        changeLanguage(lang);
-        langDropdownOpen = false;
-        langDropdown.style.display = 'none';
-        langDropBtn.focus();
-    });
-    link.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            const next = this.nextElementSibling || langLinks[0];
-            next.focus();
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            const prev = this.previousElementSibling || langLinks[langLinks.length - 1];
-            prev.focus();
-        } else if (e.key === 'Escape') {
-            langDropdownOpen = false;
-            langDropdown.style.display = 'none';
-            langDropBtn.focus();
-        }
-    });
-});
-document.addEventListener('click', function(e) {
-    if (langDropdownOpen && !langDropdown.contains(e.target) && !langDropBtn.contains(e.target)) {
-        langDropdownOpen = false;
-        langDropdown.style.display = 'none';
-    }
-});
-langDropBtn.addEventListener('keydown', function(e) {
-    if ((e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') && !langDropdownOpen) {
-        e.preventDefault();
-        langDropdownOpen = true;
-        langDropdown.style.display = 'block';
-        langLinks[0].focus();
-    } else if (e.key === 'Escape' && langDropdownOpen) {
-        langDropdownOpen = false;
-        langDropdown.style.display = 'none';
-    }
-});
 
 // === VARIABLES DE TRADUCTION GLOBALES ===
 const cellTranslations = {
@@ -780,7 +722,6 @@ function translateCellsAndSections(lang) {
     });
 }
 
-// === APPLIQUER LA TRADUCTION APRÈS CLONAGE DE TEMPLATE ===
 const originalLoadDefinitionSection = loadDefinitionSection;
 loadDefinitionSection = function() {
                     const mainContent = document.getElementById('main-content');
@@ -2166,8 +2107,16 @@ function initCarousel() {
     const slides = document.querySelectorAll('.carousel-slide');
     const prevBtn = document.querySelector('.carousel-btn.prev');
     const nextBtn = document.querySelector('.carousel-btn.next');
+    const carouselContainer = document.querySelector('.carousel-container');
+    
+    if (!slides.length || !prevBtn || !nextBtn || !carouselContainer) {
+        console.log('Carousel elements not found');
+        return;
+    }
+    
     let current = 0;
     let timer = null;
+    let isAutoPlaying = true;
 
     function showSlide(idx) {
         slides.forEach((slide, i) => {
@@ -2175,28 +2124,111 @@ function initCarousel() {
         });
         current = idx;
     }
+    
     function nextSlide() {
         showSlide((current + 1) % slides.length);
     }
+    
     function prevSlide() {
         showSlide((current - 1 + slides.length) % slides.length);
     }
+    
     function startAuto() {
+        if (isAutoPlaying) {
         timer = setInterval(nextSlide, 4000);
     }
-    function stopAuto() {
-        clearInterval(timer);
     }
-    nextBtn.addEventListener('click', () => { stopAuto(); nextSlide(); startAuto(); });
-    prevBtn.addEventListener('click', () => { stopAuto(); prevSlide(); startAuto(); });
+    
+    function stopAuto() {
+        if (timer) {
+        clearInterval(timer);
+            timer = null;
+        }
+    }
+    
+    function handleNext() {
+        stopAuto();
+        nextSlide();
+        startAuto();
+    }
+    
+    function handlePrev() {
+        stopAuto();
+        prevSlide();
+        startAuto();
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', handleNext);
+    prevBtn.addEventListener('click', handlePrev);
+    
     // Pause on hover
-    document.querySelector('.carousel-container').addEventListener('mouseenter', stopAuto);
-    document.querySelector('.carousel-container').addEventListener('mouseleave', startAuto);
+    carouselContainer.addEventListener('mouseenter', stopAuto);
+    carouselContainer.addEventListener('mouseleave', startAuto);
+    
+    // Touch events for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                handleNext();
+            } else {
+                handlePrev();
+            }
+        }
+    }
+    
+    // Initialize
     showSlide(0);
     startAuto();
+    
+    console.log('Carousel initialized with', slides.length, 'slides');
 }
-if(document.querySelector('.carousel-section')) {
+
+// Initialize carousel when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.carousel-section')) {
     initCarousel();
+    }
+});
+
+// Also initialize when content is loaded dynamically
+if (document.querySelector('.carousel-section')) {
+    initCarousel();
+}
+
+// Function to reinitialize carousel when content changes
+function reinitCarousel() {
+    const carouselSection = document.querySelector('.carousel-section');
+    if (carouselSection) {
+        // Remove existing event listeners
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        const carouselContainer = document.querySelector('.carousel-container');
+        
+        if (prevBtn) prevBtn.replaceWith(prevBtn.cloneNode(true));
+        if (nextBtn) nextBtn.replaceWith(nextBtn.cloneNode(true));
+        if (carouselContainer) carouselContainer.replaceWith(carouselContainer.cloneNode(true));
+        
+        // Reinitialize
+        setTimeout(() => {
+            initCarousel();
+        }, 100);
+    }
 }
 
 // Fonction pour créer le graphique d'évolution des membres
@@ -2579,9 +2611,10 @@ function translateFooterMenuLinks(lang) {
     const footerLinks = document.querySelectorAll('.footer-links a');
     const navLabels = [
         translations[lang]['accueil'],
+        translations[lang]['aPropos'],
         translations[lang]['palmares'],
         translations[lang]['bureau'],
-        translations[lang]['revue'],
+        translations[lang]['evenements'],
         translations[lang]['contact']
     ];
     footerLinks.forEach((link, i) => {
@@ -2669,7 +2702,12 @@ function loadSection(section) {
 function loadHomeSection() {
     const mainContent = document.getElementById('main-content');
     mainContent.innerHTML = carouselHTML[currentLang];
+    
+    // Réinitialiser le carousel après le chargement du contenu
+    setTimeout(() => {
     initCarousel();
+    }, 100);
+    
     translateContent(currentLang);
 }
 
@@ -2691,37 +2729,31 @@ function loadBureauSection() {
                     <div class="member-info">
                         <h3>${translations[currentLang].president}</h3>
                         <p class="member-name">Nadahe Mohammed</p>
-                        <div class="member-badge">⚖️</div>
+                        <div class="member-badge"><i class="fas fa-crown"></i></div>
                     </div>
                 </div>
                 
                 <!-- Vice-Président -->
                 <div class="bureau-member-card vice-president-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/DOUAA.png" alt="Douae El Khadiri - Vice-Président" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].vicePresident}</h3>
                         <p class="member-name">Douae El Khadiri</p>
-                        <div class="member-badge">📊</div>
+                        <div class="member-badge"><i class="fas fa-chart-line"></i></div>
                     </div>
                 </div>
                 
                 <!-- Secrétaire Général -->
                 <div class="bureau-member-card secretary-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-user-edit"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/7med Final.png" alt="Ahmed Fouad Goughelt - Secrétaire Général" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].secretaryGeneral}</h3>
                         <p class="member-name">Ahmed Fouad Goughelt</p>
-                        <div class="member-badge">📝</div>
+                        <div class="member-badge"><i class="fas fa-file-alt"></i></div>
                     </div>
                 </div>
                 
@@ -2736,82 +2768,79 @@ function loadBureauSection() {
                     <div class="member-info">
                         <h3>${translations[currentLang].mediaDesignChief}</h3>
                         <p class="member-name">Amine Hamdaoui</p>
-                        <div class="member-badge">🎨</div>
+                        <div class="member-badge"><i class="fas fa-palette"></i></div>
                     </div>
                 </div>
                 
                 <!-- Chef Section Française -->
                 <div class="bureau-member-card french-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-flag"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/BERETE FINAL.png" alt="Bérete Lonceny - Chef Section Française" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].frenchSectionChief}</h3>
                         <p class="member-name">Bérete Lonceny</p>
-                        <div class="member-badge">🇫🇷</div>
+                        <div class="member-badge"><i class="fas fa-flag"></i></div>
                     </div>
                 </div>
                 
                 <!-- Chef Section Anglaise -->
                 <div class="bureau-member-card english-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-flag-usa"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/Yassine.jpg" alt="Mohammed Yassine Djaouane - Chef Section Anglaise" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].englishSectionChief}</h3>
                         <p class="member-name">Mohammed Yassine Djaouane</p>
-                        <div class="member-badge">🇬🇧</div>
+                        <div class="member-badge"><i class="fas fa-flag-usa"></i></div>
                     </div>
                 </div>
                 
                 <!-- Chef Section Arabe -->
                 <div class="bureau-member-card arabic-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-star-and-crescent"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/Salma.jpg" alt="Salma Bouabane - Chef Section Arabe" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].arabicSectionChief}</h3>
                         <p class="member-name">Salma Bouabane</p>
-                        <div class="member-badge">🇸🇦</div>
+                        <div class="member-badge"><i class="fas fa-star-and-crescent"></i></div>
                     </div>
                 </div>
                 
                 <!-- Chef Sponsoring -->
                 <div class="bureau-member-card sponsoring-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/HaBBASSI FINAL.png" alt="Zainab Habbassi - Chef Sponsoring" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].sponsoringChief}</h3>
                         <p class="member-name">Zainab Habbassi</p>
-                        <div class="member-badge">💰</div>
+                        <div class="member-badge"><i class="fas fa-handshake"></i></div>
                     </div>
                 </div>
                 
                 <!-- Chef Formation -->
                 <div class="bureau-member-card training-card">
                     <div class="member-photo-frame">
-                        <div class="member-photo">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <div class="photo-placeholder">📸 Photo</div>
+                        <img src="board/ISLAM finale.png" alt="Islam Oufir - Chef Formation" class="member-photo-img">
                     </div>
                     <div class="member-info">
                         <h3>${translations[currentLang].trainingChief}</h3>
                         <p class="member-name">Islam Oufir</p>
-                        <div class="member-badge">📚</div>
+                        <div class="member-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                </div>
+                
+                <!-- Responsable Revue -->
+                <div class="bureau-member-card revue-card">
+                    <div class="member-photo-frame">
+                        <img src="board/AICHA.jpg" alt="Aicha Mabchour - Responsable Revue" class="member-photo-img">
+                    </div>
+                    <div class="member-info">
+                        <h3>Responsable Revue</h3>
+                        <p class="member-name">Aicha Mabchour</p>
+                        <div class="member-badge"><i class="fas fa-newspaper"></i></div>
                     </div>
                 </div>
             </div>
@@ -2846,6 +2875,75 @@ function loadEvenementsSection() {
                                 <p>Conscients de l'ampleur et l'ultime importance que jouent les compétitions nationales et régionales de débat, nous, The Great Debaters EHTP, avons condensés nos efforts pour garder une emprunte indélébile au sein de la communauté.</p>
                                 <p>Ainsi, nous concrétisons enfin un projet sur lequel quatre mandats successifs ont contribué avec un engagement soutenu et une détermination sans faille, y mettant leur cœur et leur âme pour offrir une expérience gratifiante aux participants, et un succès phénoménal à la famille TGD EHTP.</p>
                                 <p>Dans cette quête incessante de l'excellence, notre collectif a eu l'ineffable privilège d'organiser, cette année, la première édition tant attendue de la compétition nationale de débat, pérennisant ainsi une tradition intellectuelle et rhétorique au sein même de notre réseau.</p>
+                            </div>
+                            
+                            <div class="vee-definition-section">
+                                <div class="vee-definition-header">
+                                    <h3>🎯 <span class="translate" data-key="vee.definitionTitle">Définition de l'Événement</span></h3>
+                                    <p class="translate" data-key="vee.definitionSubtitle">Comprendre l'essence de La Valse des Esprits Éclairés</p>
+                                </div>
+                                <div class="vee-definition-content">
+                                    <div class="vee-definition-card">
+                                        <div class="vee-definition-icon">
+                                            <i class="fas fa-trophy"></i>
+                                        </div>
+                                        <div class="vee-definition-text">
+                                            <h4>Compétition de Débat</h4>
+                                            <p>La Valse des Esprits Éclairés est une compétition de débat qui s'organise au sein de l'EHTP, réunissant des écoles d'ingénieurs et de commerce marocains dans un cadre d'excellence académique et rhétorique.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="vee-definition-features">
+                                        <div class="vee-definition-feature">
+                                            <div class="vee-definition-feature-icon">
+                                                <i class="fas fa-flag"></i>
+                                            </div>
+                                            <div class="vee-definition-feature-content">
+                                                <h5>Section Française</h5>
+                                                <p>Débats en français pour valoriser l'excellence linguistique et rhétorique</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vee-definition-feature">
+                                            <div class="vee-definition-feature-icon">
+                                                <i class="fas fa-star-and-crescent"></i>
+                                            </div>
+                                            <div class="vee-definition-feature-content">
+                                                <h5>Section Arabe</h5>
+                                                <p>Débats en arabe pour célébrer la richesse culturelle et linguistique</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vee-definition-feature">
+                                            <div class="vee-definition-feature-icon">
+                                                <i class="fas fa-flag-usa"></i>
+                                            </div>
+                                            <div class="vee-definition-feature-content">
+                                                <h5>Section Anglaise</h5>
+                                                <p>Débats en anglais pour promouvoir l'internationalisation et l'ouverture</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="vee-definition-highlights">
+                                        <div class="vee-definition-highlight">
+                                            <i class="fas fa-university"></i>
+                                            <span>Écoles d'Ingénieurs</span>
+                                        </div>
+                                        <div class="vee-definition-highlight">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>Écoles de Commerce</span>
+                                        </div>
+                                        <div class="vee-definition-highlight">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>Maroc</span>
+                                        </div>
+                                        <div class="vee-definition-highlight">
+                                            <i class="fas fa-microphone-alt"></i>
+                                            <span>Débats Multilingues</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="vee-description">
                                 <p>${translations[currentLang].veeDescription}</p>
@@ -2923,7 +3021,7 @@ function loadEvenementsSection() {
                                 <div class="vee-partners-content">
                                     <div class="vee-partner-card">
                                         <div class="vee-partner-image-container">
-                                            <img src="mediatique.png" alt="Partenaire Médiatique" class="vee-partner-image">
+                                            <img src="Part mediatique.png" alt="Partenaire Médiatique" class="vee-partner-image">
                                             <div class="vee-partner-overlay">
                                                 <div class="vee-partner-info">
                                                     <h4>Partenaire Médiatique</h4>
@@ -2954,6 +3052,77 @@ function loadEvenementsSection() {
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="vee-partners-section sponsors-section">
+                                <div class="vee-partners-header">
+                                    <h3>💎 <span class="translate" data-key="partners.sponsors">Sponsors de la version précédente VEE</span></h3>
+                                    <p class="translate" data-key="partners.sponsorsDesc">Découvrez nos sponsors officiels de l'événement VEE</p>
+                                </div>
+                                <div class="vee-partners-content">
+                                    <div class="vee-partner-card sponsor-card">
+                                        <div class="vee-partner-image-container">
+                                            <img src="part off.png" alt="Sponsor Officiel" class="vee-partner-image">
+                                            <div class="vee-partner-overlay">
+                                                <div class="vee-partner-info">
+                                                    <h4>Sponsor Officiel</h4>
+                                                    <p>Partenaire financier principal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vee-partner-details">
+                                            <div class="vee-partner-badge">
+                                                <i class="fas fa-gem"></i>
+                                                <span>Sponsor Principal</span>
+                                            </div>
+                                            <div class="vee-partner-stats">
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                    <span>Financement</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-crown"></i>
+                                                    <span>Premium</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-star"></i>
+                                                    <span>Exclusif</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="vee-partner-card sponsor-card">
+                                        <div class="vee-partner-image-container">
+                                            <img src="sponso nature.png" alt="Sponsor Nature" class="vee-partner-image">
+                                            <div class="vee-partner-overlay">
+                                                <div class="vee-partner-info">
+                                                    <h4>Sponsor Nature</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vee-partner-details">
+                                            <div class="vee-partner-badge">
+                                                <i class="fas fa-leaf"></i>
+                                                <span>Sponsor par nature</span>
+                                            </div>
+                                            <div class="vee-partner-stats">
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-seedling"></i>
+                                                    <span>Écologie</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-recycle"></i>
+                                                    <span>Durable</span>
+                                                </div>
+                                                <div class="vee-partner-stat">
+                                                    <i class="fas fa-tree"></i>
+                                                    <span>Nature</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2968,38 +3137,7 @@ function loadEvenementsSection() {
 // Ajout de logs pour le débogage
 console.log('[Init] Script chargé.');
 
-// === GESTION DU SWIPE POUR LE CHANGEMENT DE LANGUE SUR MOBILE ===
-let touchStartX = 0;
-let touchEndX = 0;
-const langOrder = ['fr', 'en', 'ar'];
 
-langDropBtn.addEventListener('touchstart', function(e) {
-    if (e.touches.length === 1) {
-        touchStartX = e.touches[0].clientX;
-    }
-});
-langDropBtn.addEventListener('touchmove', function(e) {
-    if (e.touches.length === 1) {
-        touchEndX = e.touches[0].clientX;
-    }
-});
-langDropBtn.addEventListener('touchend', function(e) {
-    const deltaX = touchEndX - touchStartX;
-    if (Math.abs(deltaX) > 40) { // Seuil de détection du swipe
-        let currentIdx = langOrder.indexOf(currentLang);
-        if (deltaX < 0) {
-            // Swipe gauche : langue suivante
-            currentIdx = (currentIdx + 1) % langOrder.length;
-        } else {
-            // Swipe droite : langue précédente
-            currentIdx = (currentIdx - 1 + langOrder.length) % langOrder.length;
-        }
-        const nextLang = langOrder[currentIdx];
-        localStorage.setItem('lang', nextLang);
-        currentLang = nextLang;
-        changeLanguage(nextLang);
-    }
-});
 
 // ... existing code ...
 
